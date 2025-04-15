@@ -12,7 +12,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY + 100;
-      const section = ['about', 'skills', 'projects', 'experience', 'contact']
+      const section = ['about', 'skills', 'projects', 'contact']
         .find(id => document.getElementById(id) &&
             scrollY >= document.getElementById(id).offsetTop &&
             scrollY < document.getElementById(id).offsetTop + document.getElementById(id).offsetHeight
@@ -30,17 +30,16 @@ const Navbar = () => {
     { href: '#about', text:  'About'},
     { href: '#skills', text: 'Skills'},
     { href: '#projects', text: 'Projects'},
-    { href: '#experience', text: 'Experience'},
     { href: '#contact', text: 'Contact'},
   ]
 
   return (
-    <nav className={`fixed top-0 z-50 bg-transparent shadow-md w-full ${isDarkMode ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
+    <nav className={`fixed top-0 z-50 bg-black shadow-md w-full  ${isDarkMode ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <a href="#home" className={`text-sm font-medium hover:text-blue-600 transition-colors ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              📦 Su Shwe Sin Win
+              📦 &lt;  Su Shwe Sin Win / &gt;
             </a>
           </div>
 
