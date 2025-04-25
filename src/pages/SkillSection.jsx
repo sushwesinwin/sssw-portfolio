@@ -45,7 +45,7 @@ const SkillSection = () => {
   ]
 
   return (
-    <section className="min-h-screen py-20 min-h-screen flex items-center justify-center">
+    <section id='skills' className="min-h-screen py-20 min-h-screen flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,21 +54,20 @@ const SkillSection = () => {
       >
         <h1 className='text-5xl font-bold text-center'>Skills</h1>
         <StaggeredContainer>
-          <div className='mt-9 text-md text-gray-500 space-y-2 grid grid-cols-2 gap-4'>
+          <div className='mt-9 text-md text-gray-500 space-y-2 grid grid-cols-4 gap-5'>
             {skillCategories.map((category, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ 
                   duration: 1, 
-                  ease: "easeOut",
-                  delay: index * 1 // Increased delay between categories
+                  ease: "easeOut", 
                 }}
                 className="space-y-2 shadow-md"
-              >
-                <h2 className='text-lg text-black dark:text-white font-bold'>{category.title}</h2>
-                <div className='flex flex-wrap flex-col gap-4 text-left border border-gray-500 border-opacity-20 rounded p-5'>
+                >
+                <h2 className='text-md text-black dark:text-white font-bold mb-2'>{category.title}</h2>
+                <div className='flex flex-wrap flex-col gap-4 text-left rounded p-5'>
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skillIndex}

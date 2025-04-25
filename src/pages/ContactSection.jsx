@@ -17,9 +17,9 @@ const ProjectSection = () => {
         <h1 className='text-5xl font-bold text-center'>Contact</h1>
         <StaggeredContainer>
         <div className="mt-9 text-md text-gray-500 flex justify-center items-center gap-10 flex-wrap text-center p-10">
-            <div>📞 09-79315733</div>
-            <a href="mailto:sushwesinw@gmail.com" className="hover:text-blue-500">
-                ✉️ sushwesinw@gmail.com
+            <div>📞 09-789315733</div>
+            <a href="mailto:sushwesinwin@gmail.com" className="hover:text-blue-500">
+                ✉️ sushwesinwin@gmail.com
             </a>
             <div>📍 Based in Myanmar {timeZone()}</div>
         </div>

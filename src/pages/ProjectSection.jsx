@@ -7,28 +7,28 @@ const ProjectSection = () => {
   const projects = [
     {
       image: '/public/talknote.png',
-      title: 'Talknote',
+      title: 'Talknote 🎤',
       description: 'AI Note-Taking app built with pure CSS and Vanilla JS.',
       githubLink: 'https://github.com/sushwesinwin/talknote.git',
       demo: 'https://sushwesinwin.github.io/talknote/'
     },
     {
       image: '/public/todo.png',
-      title: 'Todo List',
+      title: 'Todo List 📝',
       description: 'A simple todo list app built with pure CSS and Vanilla JS.',
       githubLink: 'https://github.com/sushwesinwin/quicklist.git',
       demo: 'https://sushwesinwin.github.io/quicklist/'
     },
     {
       image: '/public/popcornnite.png',
-      title: 'PopcornNite',
+      title: 'PopcornNite 🍿',
       description: 'A movie streaming platform built with a React frontend and Express.js backend, featuring movie browsing and user authentication, integrated with The Movie Database (TMDB) API.',
       githubLink: 'https://github.com/sushwesinwin/PopcornNite.git',
       demo: 'Not available'
     },
     {
       image: '/public/blog.png',
-      title: 'Blog',
+      title: 'Blog 📫',
       description: 'A Laravel blog with article management, comments, user auth, and categories.',
       githubLink: 'https://github.com/sushwesinwin/blog.git',
       demo: 'Not available'
@@ -61,16 +61,16 @@ const ProjectSection = () => {
                 className="space-y-2 shadow-md min-h-[400px]"
               >
                 <h2 className='text-lg text-black dark:text-white font-bold'>{project.title}</h2>
-                <div className='flex flex-col gap-4 text-left border border-gray-500 border-opacity-20 rounded p-5 h-[350px]'>
+                <div className='flex flex-col gap-4 text-left rounded p-5 h-[350px]'>
                   <img src={project.image} alt={project.title} className='w-full h-[150px] object-cover rounded-t' />
                   <p className='text-xs text-gray-500 dark:text-white h-[100px] overflow-hidden' style={{fontFamily: '"Poppins", sans-serif'}}>{project.description}</p>
                   <div className='flex flex-col gap-2'>
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 p-2 text-gray-200 rounded hover:text-blue-600 transition-colors'>
+                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 p-2 text-gray-900 dark:text-white rounded hover:text-blue-600 transition-colors'>
                       <SiGithub className='text-xl' />
                       <span className='text-xs'>View on GitHub</span>
                     </a>
                     {project.demo !== 'Not available' && (
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 p-2 text-gray-200 rounded hover:text-blue-600 transition-colors'>
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 p-2 text-gray-900 dark:text-white rounded hover:text-blue-600 transition-colors'>
                         <FaCode className='text-xl' />
                         <span className='text-xs'>View Demo</span>
                       </a>
