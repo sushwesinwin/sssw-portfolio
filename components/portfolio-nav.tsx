@@ -1,67 +1,26 @@
-"use client";
-
 import { GithubIcon, Linkedin02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { useEffect, useState } from "react";
-
-import {
-  Menubar,
-  MenubarMenu,
-  MenubarTrigger,
-} from "@/components/ui/menubar";
-
-const navItems = [
-  ["#work", "Projects"],
-  ["#services", "Skills"],
-  ["#contact", "Contact"],
-];
 
 export function PortfolioNav() {
-  const [showMenubar, setShowMenubar] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setShowMenubar(window.scrollY >= window.innerHeight * 0.8);
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <nav className="sticky top-5 z-20 flex items-start justify-between text-sm">
-      {showMenubar ? (
-        <Menubar>
-          {navItems.map(([href, label]) => (
-            <MenubarMenu key={href}>
-              <MenubarTrigger asChild>
-                <a href={href}>{label}</a>
-              </MenubarTrigger>
-            </MenubarMenu>
-          ))}
-        </Menubar>
-      ) : (
-        <div className="flex flex-col gap-3 text-white/80">
-          {navItems.map(([href, label]) => (
-            <a key={href} href={href} className="transition hover:text-white">
-              {label}
-            </a>
-          ))}
-        </div>
-      )}
+    <nav className="fixed left-1/2 top-5 z-50 flex w-[calc(100%-2.5rem)] max-w-7xl -translate-x-1/2 items-center justify-between gap-6 text-sm text-white/75 sm:w-[calc(100%-4rem)] lg:w-[calc(100%-5rem)]">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <a href="#work" className="transition hover:text-white">
+          Projects
+        </a>
+        <a href="#services" className="transition hover:text-white">
+          Skills
+        </a>
+        <a href="#contact" className="transition hover:text-white">
+          Contact
+        </a>
+      </div>
 
-      <a href="#" className="absolute left-1/2 flex -translate-x-1/2 items-center gap-4">
-        <span className="brand-cube" aria-hidden="true">
-          <span className="brand-cube__face brand-cube__front">S</span>
-          <span className="brand-cube__face brand-cube__right" />
-          <span className="brand-cube__face brand-cube__top" />
-        </span>
-        <span className="text-lg font-bold tracking-[0.28em] sm:text-xl">
-          sssw
-        </span>
+      <a href="#" className="text-lg font-bold tracking-[0.28em] text-white">
+        sssw
       </a>
 
-      <div className="flex items-center gap-3 text-white/70">
+      <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2">
         <a
           href="https://github.com/sushwesinwin"
           target="_blank"
