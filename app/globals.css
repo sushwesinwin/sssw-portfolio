@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "../components/TargetCursor.css";
 @import "../components/GlareHover.css";
+@import "../components/ScrollVelocity.css";
 
 @custom-variant dark (&:is(.dark *));
 
