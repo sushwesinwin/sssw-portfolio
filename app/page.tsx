@@ -23,6 +23,7 @@ import {
 import GlareHover from "@/components/GlareHover";
 import { PortfolioNav } from "@/components/portfolio-nav";
 import ScrollVelocity from "@/components/ScrollVelocity";
+import { SelectedWorkSection } from "@/components/selected-work-section";
 import TargetCursor from "@/components/TargetCursor";
 import { Button } from "@/components/ui/button";
 
@@ -37,48 +38,116 @@ const techStack =
   "REACT NEXT.JS NODE.JS TYPESCRIPT NESTJS TAILWIND EXPRESS JS MONGODB PRISMA POSTGRESQL DOCKER";
 const selectedWork = [
   {
+    slug: "job-academy",
     company: "Job Academy",
     role: "Technical Lead",
     period: "Jun 2025 - Present",
     location: "Yangon, Myanmar (Remote)",
     summary:
-      "Led development of a job platform and online learning platform with AI-powered resume generation.",
-    projects: "Job Platform, Online Learning Platform, AI Resume Builder",
-    stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AI/LLM", "Figma", "ClickUp"],
+      "Led development of a comprehensive job and online learning platform featuring an AI-powered resume builder. Translated stakeholder requirements into technical specifications and shipped responsive landing pages, authentication flows, and scalable core features from concept to production.",
+    projects: "Job Platform with AI Resume Builder, Online Learning Platform, Goodwill Advisory Website",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "ClickUp"],
+    images: [
+      {
+        src: "/selected-work/ja.png",
+        title: "Job Academy Platform",
+        href: "https://www.jobacademyhub.com/",
+        stack: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "ClickUp"],
+      },
+      {
+        src: "/selected-work/gw.png",
+        title: "Goodwill Advisory Website",
+        href: "https://goodwilladvisory.vercel.app/en",
+        stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+      },
+    ],
     href: "https://www.jobacademyhub.com/",
   },
   {
+    slug: "nexstack",
     company: "NexStack",
     role: "Full-Stack Developer",
-    period: "Jan 2026 - Present",
+    period: "Jan 2026 - Jun 2026",
     location: "Singapore (Remote)",
     summary:
-      "Built client SaaS platforms including a business networking platform and WhatsApp AI integration.",
-    projects: "JHI Business Network, WhatsApp AI Integration",
-    stack: ["Next.js", "React", "TypeScript", "Hono", "Strapi", "PostgreSQL", "Prisma", "OAuth"],
+      "Engineered scalable full-stack SaaS platforms and custom applications using modern web technologies. Built reusable frontend components, secure admin portals, and complex integrations including WhatsApp API automation and BIM-focused product experiences.",
+    projects: "JHI Business Network, WhatsApp AI Integration, Vivata Revit Automation",
+    stack: ["Next.js", "React", "TypeScript", "HonoJS", "Strapi", "PostgreSQL", "Prisma", "OAuth"],
+    images: [
+      {
+        src: "/selected-work/jhi.png",
+        title: "JHI Business Network",
+        href: "https://web-jhi.singaporetestlab.com/",
+        stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Strapi"],
+      },
+      {
+        src: "/selected-work/revit.png",
+        title: "Vivata Revit Automation",
+        href: "https://revit-web.singaporetestlab.com/",
+        stack: ["Next.js", "TypeScript", "JavaScript", "PostgreSQL", "Prisma", "Strapi", "HonoJS"],
+      },
+    ],
     href: "https://web-jhi.singaporetestlab.com/",
   },
   {
+    slug: "manifest-movies",
     company: "Manifest Movies",
     role: "AI Developer",
     period: "Jan 2026 - Apr 2026",
     location: "US (Remote)",
     summary:
-      "Built customer-facing web experiences, analytics, monitoring, and lifecycle marketing automation workflows.",
+      "Optimized customer-facing web platforms for an AI media product, aligning development updates with marketing strategy. Improved user engagement through email infrastructure, lifecycle automation, analytics, and monitoring workflows.",
     projects: "Manifest Movies",
-    stack: ["Next.js", "React", "TypeScript", "Klaviyo", "PostHog", "Sentry", "Playwright"],
+    stack: ["Next.js", "React", "TypeScript", "Claude", "Klaviyo", "PostHog", "Sentry", "Playwright"],
+    images: [
+      {
+        src: "/selected-work/manifest.png",
+        title: "Manifest Movies",
+        href: "https://manifestmovies.com/",
+        stack: ["Next.js", "React", "TypeScript", "Claude", "Klaviyo", "PostHog", "Sentry"],
+      },
+    ],
     href: "https://manifestmovies.com/",
   },
   {
+    slug: "village-link",
     company: "Village Link",
     role: "Junior Web Developer",
     period: "Apr 2024 - Feb 2025",
     location: "Yangon, Myanmar",
     summary:
-      "Developed platform features, integrated APIs, supported QA, and wrote product and technical documentation.",
+      "Developed production-ready platform features for an agricultural technology network. Integrated third-party APIs, supported QA cycles, and authored product and technical documentation to improve delivery quality.",
     projects: "Htwet Toe Agricultural Social Platform",
     stack: ["Next.js", "React", "TypeScript", "Jira"],
+    images: [
+      {
+        src: "/selected-work/htwat-toe.png",
+        title: "Htwet Toe Agricultural Social Platform",
+        href: "https://htwettoe.com/",
+        stack: ["Next.js", "React", "TypeScript", "Jira"],
+      },
+    ],
     href: "https://htwettoe.com/",
+  },
+  {
+    slug: "yoma",
+    company: "Yoma Fleet",
+    role: "Software Developer Intern",
+    period: "2023",
+    location: "Yangon, Myanmar",
+    summary:
+      "Delivered full-cycle development for a core job application platform. Supported Agile workflows, QA testing, BRD documentation, and operational processes while coordinating across engineering, QA, product, and IT teams.",
+    projects: "Job Application Platform, Onboarding/Auth Flow, OTP Integration, QA Testing, BRD Documentation",
+    stack: ["Next.js", "TypeScript", "GitHub", "ClickUp", "Odoo"],
+    images: [
+      {
+        src: "/selected-work/yoma.png",
+        title: "Yoma Fleet Careers Platform",
+        href: "https://career.yomafleet.com/",
+        stack: ["Next.js", "TypeScript", "ClickUp"],
+      },
+    ],
+    href: "https://career.yomafleet.com/",
   },
 ];
 const techArsenal: {
@@ -120,10 +189,10 @@ export default function Home() {
       >
         <section className="w-full overflow-hidden">
           <TargetCursor targetSelector={cursorSelector} cursorColor="#ffffff" />
-          <div className={`${pageContainer} relative flex min-h-screen flex-col py-5`}>
+          <div className={`${pageContainer} relative flex min-h-screen flex-col pb-5 pt-28 sm:pt-24`}>
             <PortfolioNav />
 
-            <div className="grid flex-1 w-full items-center gap-10 py-20 md:grid-cols-[1.15fr_0.85fr]">
+            <div className="grid flex-1 w-full items-center gap-10 py-10 md:grid-cols-[1.15fr_0.85fr]">
               <div>
                 <p className="hero-enter hero-enter-1 mb-6 font-mono text-[clamp(1.25rem,3.5vw,2.75rem)] font-bold uppercase tracking-[0.22em] text-white/20">
                   Hello, I&apos;m
@@ -172,56 +241,7 @@ export default function Home() {
           </div>
         </section>
       </GlareHover>
-      <section id="work" className={`${pageContainer} min-h-screen py-20`}>
-        <h2 className="font-mono text-[clamp(1.75rem,4vw,3rem)] font-bold uppercase leading-none tracking-[0.22em] text-white">
-          Selected Work
-        </h2>
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {selectedWork.map((work) => (
-            <article
-              key={work.company}
-              className="border border-white/10 bg-white/[0.02] p-5 transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.04] hover:shadow-[0_18px_60px_rgba(255,255,255,0.06)]"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-white">{work.company}</h3>
-                  <p className="mt-1 text-sm text-white/55">{work.location}</p>
-                </div>
-                {work.href && (
-                  <a
-                    aria-label={`Open ${work.company}`}
-                    className="text-white/45 hover:text-white"
-                    href={work.href}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <ArrowUpRight className="size-5" />
-                  </a>
-                )}
-              </div>
-              <div className="mt-5 flex flex-wrap gap-x-3 gap-y-1 text-sm">
-                <span className="font-medium text-white">{work.role}</span>
-                <span className="text-white/25">/</span>
-                <span className="text-white/55">{work.period}</span>
-              </div>
-              <p className="mt-4 text-sm leading-6 text-white/70">{work.summary}</p>
-              <p className="mt-4 text-xs uppercase tracking-[0.14em] text-white/35">
-                {work.projects}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {work.stack.map((item) => (
-                  <span
-                    key={item}
-                    className="border border-white/10 px-2.5 py-1 text-xs text-white/60"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      <SelectedWorkSection work={selectedWork} cursorTarget={cursorTarget} />
       <section id="services" className={`${pageContainer} py-20`}>
         <div>
           <div>

@@ -132,6 +132,14 @@
   }
 }
 
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 .hero-enter {
   animation: hero-enter 700ms ease-out both;
 }
