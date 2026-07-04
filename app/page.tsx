@@ -1,4 +1,4 @@
-import { ArrowUpRight, Terminal } from "lucide-react";
+import { ArrowUpRight, Award, Terminal } from "lucide-react";
 import type { IconType } from "react-icons";
 import {
   SiClickup,
@@ -20,6 +20,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
+import Ferrofluid from "@/components/Ferrofluid";
 import GlareHover from "@/components/GlareHover";
 import { PortfolioNav } from "@/components/portfolio-nav";
 import ScrollVelocity from "@/components/ScrollVelocity";
@@ -30,8 +31,8 @@ import { Button } from "@/components/ui/button";
 const pageContainer = "mx-auto w-full max-w-5xl px-5 sm:px-8 lg:px-10";
 const cursorTarget = "hero-cursor-target";
 const cursorSelector = `.${cursorTarget}`;
-const heroTitleClass = `${cursorTarget} hero-enter hero-enter-2 inline-block border border-dashed border-white/10 px-5 py-3 text-[clamp(2.75rem,7vw,5.5rem)] font-bold leading-[0.86] tracking-normal`;
-const statClass = `${cursorTarget} flex w-fit items-center gap-3 border border-white/10 bg-white/[0.03] px-5 py-2.5`;
+const heroTitleClass = `${cursorTarget} hero-enter hero-enter-2 inline-block text-[clamp(3.1rem,7.6vw,6rem)] font-semibold leading-[0.92] tracking-normal text-white/90`;
+const statClass = `${cursorTarget} flex w-fit items-center gap-3 border border-white/10 bg-white/[0.025] px-4 py-2.5`;
 const intro =
   "Full-Stack Developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.";
 const techStack =
@@ -174,6 +175,14 @@ const techArsenal: {
   { name: "Sentry", icon: SiSentry, color: "text-[#FB4226]", description: "Error monitoring" },
   { name: "PostHog", icon: SiPosthog, color: "text-[#F54E00]", description: "Product analytics" },
 ];
+const certifications = [
+  {
+    name: "Introduction to Software Engineering",
+    issuer: "Coursera",
+    credential: "SW3ZRVWYASIB",
+    href: "https://coursera.org/share/3e5de2d37ee9fd9e9951048155962625",
+  },
+];
 
 export default function Home() {
   return (
@@ -192,9 +201,9 @@ export default function Home() {
           <div className={`${pageContainer} relative flex min-h-screen flex-col pb-5 pt-28 sm:pt-24`}>
             <PortfolioNav />
 
-            <div className="grid flex-1 w-full items-center gap-10 py-10 md:grid-cols-[1.15fr_0.85fr]">
+            <div className="grid flex-1 w-full items-center gap-10 py-8 md:grid-cols-[1.08fr_0.92fr]">
               <div>
-                <p className="hero-enter hero-enter-1 mb-6 font-mono text-[clamp(1.25rem,3.5vw,2.75rem)] font-bold uppercase tracking-[0.22em] text-white/20">
+                <p className="hero-enter hero-enter-1 mb-5 font-mono text-xs font-semibold uppercase tracking-[0.24em] text-white/30 sm:text-sm">
                   Hello, I&apos;m
                 </p>
                 <h1 className={heroTitleClass}>
@@ -204,11 +213,11 @@ export default function Home() {
                 </h1>
               </div>
 
-              <div className="md:pt-11">
-                <p className="hero-enter hero-enter-3 max-w-xl text-sm leading-6 text-white/75 sm:text-base sm:leading-7">
+              <div className="md:pt-9">
+                <p className="hero-enter hero-enter-3 max-w-md text-sm leading-6 text-white/65 sm:text-base sm:leading-7">
                   {intro}
                 </p>
-                <div className="hero-enter hero-enter-4 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="hero-enter hero-enter-4 mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <div className={statClass}>
                     <Terminal className="size-4 text-white/50" />
                     <p className="text-xl font-semibold leading-none">3+</p>
@@ -219,7 +228,7 @@ export default function Home() {
                   <Button
                     asChild
                     size="lg"
-                    className="rounded-none bg-white px-5 text-neutral-950 hover:bg-white/90"
+                    className="rounded-none bg-white px-5 text-neutral-950 transition hover:bg-white/90"
                   >
                     <a href="#work" className={cursorTarget}>
                       VIEW PROJECTS
@@ -243,34 +252,77 @@ export default function Home() {
       </GlareHover>
       <SelectedWorkSection work={selectedWork} cursorTarget={cursorTarget} />
       <section id="services" className={`${pageContainer} py-20`}>
-        <div>
-          <div>
-            <h2 className="font-mono text-[clamp(1.75rem,4vw,3rem)] font-bold uppercase leading-none tracking-[0.22em] text-white">
-              Tech Arsenal
-            </h2>
-          </div>
-        </div>
+        <h2 className="text-center text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
+          Tech Arsenal
+        </h2>
 
-        <div className="mt-8 grid grid-cols-2 border-l border-t border-white/10 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 border-l border-t border-white/10 sm:grid-cols-3 lg:grid-cols-4">
           {techArsenal.map(({ name, icon: Icon, color, description }) => (
             <div
               key={name}
               title={description}
-              className={`${cursorTarget} group flex min-h-40 flex-col border-b border-r border-white/10 px-2 py-5 text-center text-white transition duration-300 hover:bg-white`}
+              className={`${cursorTarget} group flex min-h-32 flex-col border-b border-r border-white/10 px-3 py-4 text-center text-white transition duration-300 hover:bg-white/[0.04]`}
             >
               <div className="flex flex-1 flex-col items-center justify-center">
-                <span className={`flex size-10 items-center justify-center ${color} group-hover:text-neutral-950`}>
-                  <Icon className="size-7" />
+                <span className={`flex size-9 items-center justify-center ${color}`}>
+                  <Icon className="size-6" />
                 </span>
-                <span className="mt-4 font-mono text-xs font-semibold uppercase tracking-[0.12em] group-hover:text-neutral-950">
+                <span className="mt-3 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-white/80">
                   {name}
                 </span>
               </div>
-              <span className="font-mono text-[9px] font-normal uppercase tracking-[0.18em] text-white/55 opacity-0 transition group-hover:text-neutral-950 group-hover:opacity-100">
+              <span className="font-mono text-[9px] font-normal uppercase tracking-[0.16em] text-white/35 opacity-0 transition group-hover:opacity-100">
                 {description}
               </span>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="certifications" className="relative overflow-hidden py-20">
+        <div className="absolute inset-0 opacity-35">
+          <Ferrofluid
+            className="h-full w-full"
+            dpr={1}
+            colors={["#ffffff", "#7c3aed", "#0A0A0A"]}
+            speed={0.25}
+            scale={1.9}
+            turbulence={0.7}
+            fluidity={0.08}
+            opacity={0.45}
+            mouseInteraction={false}
+            mixBlendMode="screen"
+          />
+        </div>
+        <div className={`${pageContainer} relative`}>
+          <h2 className="text-center text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
+            Certifications
+          </h2>
+
+          <div className="mt-10 border-l border-t border-white/10 bg-[#0A0A0A]/70 backdrop-blur-md">
+            {certifications.map(({ name, issuer, credential, href }) => (
+              <a
+                key={credential}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className={`${cursorTarget} group flex items-center justify-between gap-5 border-b border-r border-white/10 px-5 py-5 text-white transition hover:bg-white/[0.04]`}
+              >
+                <div className="flex min-w-0 items-center gap-4">
+                  <span className="flex size-10 shrink-0 items-center justify-center border border-white/10 text-white/55">
+                    <Award className="size-5" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-medium text-white/85">{name}</p>
+                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+                      {issuer} / Credential {credential}
+                    </p>
+                  </div>
+                </div>
+                <ArrowUpRight className="size-4 shrink-0 text-white/35 transition group-hover:text-white" />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </main>
