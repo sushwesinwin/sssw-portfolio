@@ -68,19 +68,19 @@ const selectedWork = [
     summary:
       "Engineered scalable full-stack SaaS platforms and custom applications using modern web technologies. Built reusable frontend components, secure admin portals, and complex integrations including WhatsApp API automation and BIM-focused product experiences.",
     projects: "JHI Business Network, WhatsApp AI Integration, Vivata Revit Automation",
-    stack: ["Next.js", "React", "TypeScript", "HonoJS", "Strapi", "PostgreSQL", "Prisma", "OAuth", "Hermes", "Codex", "Block Storage", "Cloudinary", "GitNexus", "OpenSpec"],
+    stack: ["Next.js", "React", "TypeScript", "HonoJS", "Strapi", "PostgreSQL", "Prisma", "OAuth", "WebSocket", "Hermes", "Codex", "Block Storage", "Cloudinary", "GitNexus", "OpenSpec"],
     images: [
       {
         src: "/selected-work/jhi.png",
         title: "JHI Business Network",
         href: "https://web-jhi.singaporetestlab.com/",
-        stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Strapi", "Hermes", "Codex", "Cloudinary", "GitNexus", "OpenSpec"],
+        stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Strapi", "WebSocket", "Hermes", "Codex", "Cloudinary", "GitNexus", "OpenSpec"],
       },
       {
         src: "/selected-work/revit.png",
         title: "Vivata Revit Automation",
         href: "https://revit-web.singaporetestlab.com/",
-        stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Strapi", "HonoJS", "Hermes", "Codex", "Block Storage", "GitNexus", "OpenSpec"],
+        stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Strapi", "HonoJS", "WebSocket", "Hermes", "Codex", "Block Storage", "GitNexus", "OpenSpec"],
       },
     ],
     href: "https://web-jhi.singaporetestlab.com/",
@@ -88,7 +88,7 @@ const selectedWork = [
   {
     slug: "manifest-movies",
     company: "Manifest Movies",
-    role: "AI Developer",
+    role: "AI-Assisted Software Engineer",
     period: "Jan 2026 - Apr 2026",
     location: "US (Remote)",
     summary:
@@ -292,41 +292,11 @@ export default function Home() {
         </div>
         <div className={`${pageContainer} relative`}>
           <h2 className="text-center text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
-            Certifications
+            Education <br /> &amp; Professional Qualifications
           </h2>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {certifications.map(({ name, issuer, credential, href }) => (
-              <a
-                key={credential}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className={`${cursorTarget} group flex min-h-72 flex-col justify-between border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md transition hover:bg-white/[0.04]`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
-                      Certification
-                    </span>
-                    <span className="flex size-9 shrink-0 items-center justify-center border border-white/10 text-white/55">
-                      <Award className="size-4" />
-                    </span>
-                  </div>
-                  <p className="mt-6 font-medium leading-6 text-white/85">{name}</p>
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
-                    {issuer}
-                  </p>
-                </div>
-                <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-4">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">
-                    Credential {credential}
-                  </span>
-                  <ArrowUpRight className="size-4 shrink-0 text-white/35 transition group-hover:text-white" />
-                </div>
-              </a>
-            ))}
-            <div className={`${cursorTarget} min-h-72 border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md`}>
+          <div className="mt-10 grid items-stretch gap-4 md:grid-cols-3">
+            <div className={`${cursorTarget} flex min-h-72 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md`}>
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
                   Education
@@ -338,7 +308,7 @@ export default function Home() {
               <p className="mt-6 font-medium leading-6 text-white/85">
                 Technological University (Thanlyin), Myanmar
               </p>
-              <div className="mt-5 divide-y divide-white/10 border-t border-white/10">
+              <div className="mt-5 flex-1 divide-y divide-white/10 border-t border-white/10">
                 {[
                   ["2016 - 2017", "Bachelor of Engineering (Electronic)"],
                   ["2015 - 2016", "Bachelor of Technology (Electronic)"],
@@ -351,7 +321,39 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className={`${cursorTarget} min-h-72 border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md`}>
+            {certifications.map(({ name, issuer, credential, href }) => (
+              <a
+                key={credential}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className={`${cursorTarget} group flex min-h-72 flex-col justify-between border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md transition hover:bg-white/[0.04]`}
+              >
+                <div className="flex flex-1 flex-col">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+                      Certification
+                    </span>
+                    <span className="flex size-9 shrink-0 items-center justify-center border border-white/10 text-white/55">
+                      <Award className="size-4" />
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col items-center justify-center py-6 text-center">
+                    <p className="font-medium leading-6 text-white/85">{name}</p>
+                    <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+                      {issuer}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-4">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">
+                    Credential {credential}
+                  </span>
+                  <ArrowUpRight className="size-4 shrink-0 text-white/35 transition group-hover:text-white" />
+                </div>
+              </a>
+            ))}
+            <div className={`${cursorTarget} flex min-h-72 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md`}>
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
                   Training
@@ -361,7 +363,7 @@ export default function Home() {
                 </span>
               </div>
               <p className="mt-6 font-medium leading-6 text-white/85">Additional Training</p>
-              <div className="mt-5 divide-y divide-white/10 border-t border-white/10">
+              <div className="mt-5 flex-1 divide-y divide-white/10 border-t border-white/10">
                 {[
                   "Diploma in Business English - MIB",
                   "IELTS 4-Skills - MIB",

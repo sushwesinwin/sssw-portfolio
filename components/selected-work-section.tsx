@@ -38,6 +38,7 @@ export function SelectedWorkSection({
   const activeProject: Project | undefined =
     active?.images[Math.min(activeProjectIndex, active.images.length - 1)] ??
     active?.images[0];
+  const activeImageIndex = active ? Math.min(activeProjectIndex, active.images.length - 1) : 0;
   const activeProjectStack = activeProject?.stack ?? active?.stack ?? [];
 
   useEffect(() => {
@@ -46,8 +47,9 @@ export function SelectedWorkSection({
       if (!section || work.length < 2) return;
 
       const rect = section.getBoundingClientRect();
-      const scrollRange = rect.height - window.innerHeight;
+      const scrollRange = Math.max(1, rect.height - window.innerHeight);
       const progress = Math.min(1, Math.max(0, -rect.top / scrollRange));
+      section.style.setProperty("--work-progress", `${progress * 100}%`);
       const scaled = progress * work.length;
       const workIndex = Math.min(work.length - 1, Math.floor(scaled));
       const localProgress = Math.min(1, scaled - workIndex);
@@ -126,23 +128,41 @@ export function SelectedWorkSection({
             </div>
 
             <div className="relative pr-6 lg:pr-8">
-              <a
-                href={activeProject.href}
-                target="_blank"
-                rel="noreferrer"
-                className={`${cursorTarget} group relative flex h-[clamp(12rem,30svh,18rem)] items-center justify-center overflow-hidden bg-white/[0.02] p-2 shadow-[0_24px_70px_rgba(255,255,255,0.05)] lg:h-[min(46svh,28rem)]`}
-              >
-                <span className="absolute right-4 top-4 z-10 flex size-9 items-center justify-center border border-white/15 bg-black/30 text-white/0 opacity-0 backdrop-blur-sm transition group-hover:text-white group-hover:opacity-100">
-                  <ArrowUpRight className="size-4" />
-                </span>
-                <Image
-                  src={activeProject.src}
-                  alt={`${activeProject.title} project preview`}
-                  fill
-                  sizes="(min-width: 1280px) 760px, (min-width: 1024px) 58vw, 100vw"
-                  className="object-contain object-center p-2 transition-opacity duration-500"
-                />
-              </a>
+              <div className="pointer-events-none absolute right-0 top-1/2 h-20 w-px -translate-y-1/2 bg-white/15">
+                <span className="block h-[var(--work-progress,0%)] w-full bg-white/65" />
+              </div>
+              <div className="relative h-[clamp(12rem,30svh,18rem)] overflow-hidden bg-white/[0.02] p-2 shadow-[0_24px_70px_rgba(255,255,255,0.05)] lg:h-[min(46svh,28rem)]">
+                {active.images.map((project, index) => {
+                  const isActiveProject = index === activeImageIndex;
+
+                  return (
+                    <a
+                      key={project.href}
+                      href={project.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-hidden={!isActiveProject}
+                      tabIndex={isActiveProject ? undefined : -1}
+                      className={`${cursorTarget} group absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
+                        isActiveProject
+                          ? "translate-y-0 opacity-100"
+                          : "pointer-events-none translate-y-6 opacity-0"
+                      }`}
+                    >
+                      <span className="absolute right-4 top-4 z-10 flex size-9 items-center justify-center border border-white/15 bg-black/30 text-white/0 opacity-0 backdrop-blur-sm transition group-hover:text-white group-hover:opacity-100">
+                        <ArrowUpRight className="size-4" />
+                      </span>
+                      <Image
+                        src={project.src}
+                        alt={`${project.title} project preview`}
+                        fill
+                        sizes="(min-width: 1280px) 760px, (min-width: 1024px) 58vw, 100vw"
+                        className="object-contain object-center p-2"
+                      />
+                    </a>
+                  );
+                })}
+              </div>
 
               <div className="mt-5 text-center">
                 <p className="text-xs uppercase tracking-[0.14em] text-white/45">
