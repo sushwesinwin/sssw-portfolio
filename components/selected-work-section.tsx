@@ -153,7 +153,7 @@ export function SelectedWorkSection({
           </div>
 
           <div className="flex shrink-0 flex-wrap items-center gap-2 border-t border-white/10 pt-4">
-            {activeProjectStack.slice(0, 7).map((stackItem) => (
+            {activeProjectStack.map((stackItem) => (
               <span
                 key={stackItem}
                 className="border border-white/10 px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-white/50"

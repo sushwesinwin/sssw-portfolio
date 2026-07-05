@@ -22,7 +22,6 @@ import {
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  ["#about", "ABOUT"],
   ["#work", "WORK"],
   ["#services", "STACK"],
 ];

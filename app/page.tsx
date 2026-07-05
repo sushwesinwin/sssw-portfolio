@@ -1,4 +1,4 @@
-import { ArrowUpRight, Award, Terminal } from "lucide-react";
+import { ArrowUpRight, Award } from "lucide-react";
 import type { IconType } from "react-icons";
 import {
   SiClickup,
@@ -25,13 +25,11 @@ import GlareHover from "@/components/GlareHover";
 import { PortfolioNav } from "@/components/portfolio-nav";
 import { SelectedWorkSection } from "@/components/selected-work-section";
 import TargetCursor from "@/components/TargetCursor";
-import { Button } from "@/components/ui/button";
 
 const pageContainer = "mx-auto w-full max-w-5xl px-5 sm:px-8 lg:px-10";
 const cursorTarget = "hero-cursor-target";
 const cursorSelector = `.${cursorTarget}`;
 const heroTitleClass = `${cursorTarget} hero-enter hero-enter-2 inline-block text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85`;
-const statClass = `${cursorTarget} flex w-fit items-center gap-3 border border-white/10 bg-white/[0.025] px-4 py-2.5`;
 const intro =
   "Full-Stack Developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.";
 const selectedWork = [
@@ -42,7 +40,7 @@ const selectedWork = [
     period: "Jun 2025 - Present",
     location: "Yangon, Myanmar (Remote)",
     summary:
-      "Led development of a comprehensive job and online learning platform featuring an AI-powered resume builder. Translated stakeholder requirements into technical specifications and shipped responsive landing pages, authentication flows, and scalable core features from concept to production.",
+      "Technical lead bridging business logic, system architecture, and hands-on feature development to deliver production-ready software.",
     projects: "Job Platform with AI Resume Builder, Online Learning Platform, Goodwill Advisory Website",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "ClickUp"],
     images: [
@@ -70,19 +68,19 @@ const selectedWork = [
     summary:
       "Engineered scalable full-stack SaaS platforms and custom applications using modern web technologies. Built reusable frontend components, secure admin portals, and complex integrations including WhatsApp API automation and BIM-focused product experiences.",
     projects: "JHI Business Network, WhatsApp AI Integration, Vivata Revit Automation",
-    stack: ["Next.js", "React", "TypeScript", "HonoJS", "Strapi", "PostgreSQL", "Prisma", "OAuth"],
+    stack: ["Next.js", "React", "TypeScript", "HonoJS", "Strapi", "PostgreSQL", "Prisma", "OAuth", "Hermes", "Codex", "Block Storage", "Cloudinary", "GitNexus", "OpenSpec"],
     images: [
       {
         src: "/selected-work/jhi.png",
         title: "JHI Business Network",
         href: "https://web-jhi.singaporetestlab.com/",
-        stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Strapi"],
+        stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Strapi", "Hermes", "Codex", "Cloudinary", "GitNexus", "OpenSpec"],
       },
       {
         src: "/selected-work/revit.png",
         title: "Vivata Revit Automation",
         href: "https://revit-web.singaporetestlab.com/",
-        stack: ["Next.js", "TypeScript", "JavaScript", "PostgreSQL", "Prisma", "Strapi", "HonoJS"],
+        stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Strapi", "HonoJS", "Hermes", "Codex", "Block Storage", "GitNexus", "OpenSpec"],
       },
     ],
     href: "https://web-jhi.singaporetestlab.com/",
@@ -134,8 +132,8 @@ const selectedWork = [
     period: "2023",
     location: "Yangon, Myanmar",
     summary:
-      "Delivered full-cycle development for a core job application platform. Supported Agile workflows, QA testing, BRD documentation, and operational processes while coordinating across engineering, QA, product, and IT teams.",
-    projects: "Job Application Platform, Onboarding/Auth Flow, OTP Integration, QA Testing, BRD Documentation",
+      "Developed onboarding and authentication flows and authored BRDs for the Yoma Fleet Careers intern project, while conducting QA testing for Yoma Plus across Agile teams.",
+    projects: "Yoma Fleet Careers, Yoma Plus, Onboarding/Auth Flow, OTP Integration, QA Testing, BRD Documentation",
     stack: ["Next.js", "TypeScript", "GitHub", "ClickUp", "Odoo"],
     images: [
       {
@@ -143,6 +141,12 @@ const selectedWork = [
         title: "Yoma Fleet Careers Platform",
         href: "https://career.yomafleet.com/",
         stack: ["Next.js", "TypeScript", "ClickUp"],
+      },
+      {
+        src: "/selected-work/yoma-plus.png",
+        title: "Yoma Plus",
+        href: "https://www.yomafleet.com/plus/",
+        stack: ["QA Testing", "Agile", "BRD Documentation"],
       },
     ],
     href: "https://career.yomafleet.com/",
@@ -210,8 +214,8 @@ export default function Home() {
                 <h1 className={heroTitleClass}>
                   SU SHWE SIN WIN
                 </h1>
-                <p className="hero-enter hero-enter-3 mt-5 text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
-                  Full-stack developer
+                <p className="hero-enter hero-enter-3 mx-auto mt-5 max-w-lg text-sm leading-6 text-white/52">
+                  {intro}
                 </p>
               </div>
             </div>
@@ -242,37 +246,6 @@ export default function Home() {
           </div>
         </section>
       </GlareHover>
-      <section id="about" className={`${pageContainer} py-20`}>
-        <div className="grid gap-8 border-y border-white/10 py-10 md:grid-cols-[0.8fr_1.2fr] md:items-center">
-          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
-            About
-          </h2>
-          <div>
-            <p className="max-w-2xl text-sm leading-6 text-white/65 sm:text-base sm:leading-7">
-              {intro}
-            </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <div className={statClass}>
-                <Terminal className="size-4 text-white/50" />
-                <p className="text-xl font-semibold leading-none">3+</p>
-                <p className="text-xs uppercase tracking-[0.14em] text-white/50">
-                  Years Exp.
-                </p>
-              </div>
-              <Button
-                asChild
-                size="lg"
-                className="rounded-none bg-white px-5 text-neutral-950 transition hover:bg-white/90"
-              >
-                <a href="#work" className={cursorTarget}>
-                  VIEW PROJECTS
-                  <ArrowUpRight />
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
       <SelectedWorkSection work={selectedWork} cursorTarget={cursorTarget} />
       <section id="services" className={`${pageContainer} py-20`}>
         <h2 className="text-center text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
