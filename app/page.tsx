@@ -23,7 +23,6 @@ import {
 import Ferrofluid from "@/components/Ferrofluid";
 import GlareHover from "@/components/GlareHover";
 import { PortfolioNav } from "@/components/portfolio-nav";
-import ScrollVelocity from "@/components/ScrollVelocity";
 import { SelectedWorkSection } from "@/components/selected-work-section";
 import TargetCursor from "@/components/TargetCursor";
 import { Button } from "@/components/ui/button";
@@ -31,12 +30,10 @@ import { Button } from "@/components/ui/button";
 const pageContainer = "mx-auto w-full max-w-5xl px-5 sm:px-8 lg:px-10";
 const cursorTarget = "hero-cursor-target";
 const cursorSelector = `.${cursorTarget}`;
-const heroTitleClass = `${cursorTarget} hero-enter hero-enter-2 inline-block text-[clamp(3.1rem,7.6vw,6rem)] font-semibold leading-[0.92] tracking-normal text-white/90`;
+const heroTitleClass = `${cursorTarget} hero-enter hero-enter-2 inline-block text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85`;
 const statClass = `${cursorTarget} flex w-fit items-center gap-3 border border-white/10 bg-white/[0.025] px-4 py-2.5`;
 const intro =
   "Full-Stack Developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.";
-const techStack =
-  "REACT NEXT.JS NODE.JS TYPESCRIPT NESTJS TAILWIND EXPRESS JS MONGODB PRISMA POSTGRESQL DOCKER";
 const selectedWork = [
   {
     slug: "job-academy",
@@ -175,6 +172,10 @@ const techArsenal: {
   { name: "Sentry", icon: SiSentry, color: "text-[#FB4226]", description: "Error monitoring" },
   { name: "PostHog", icon: SiPosthog, color: "text-[#F54E00]", description: "Product analytics" },
 ];
+const heroTechSlots = techArsenal.slice(0, 5).map((item, index) => [
+  item,
+  techArsenal[index + 5] ?? item,
+] as const);
 const certifications = [
   {
     name: "Introduction to Software Engineering",
@@ -201,55 +202,77 @@ export default function Home() {
           <div className={`${pageContainer} relative flex min-h-screen flex-col pb-5 pt-28 sm:pt-24`}>
             <PortfolioNav />
 
-            <div className="grid flex-1 w-full items-center gap-10 py-8 md:grid-cols-[1.08fr_0.92fr]">
+            <div className="absolute inset-0 flex items-center justify-center px-5 text-center">
               <div>
                 <p className="hero-enter hero-enter-1 mb-5 font-mono text-xs font-semibold uppercase tracking-[0.24em] text-white/30 sm:text-sm">
                   Hello, I&apos;m
                 </p>
                 <h1 className={heroTitleClass}>
-                  SU SHWE
-                  <br />
-                  SIN WIN
+                  SU SHWE SIN WIN
                 </h1>
-              </div>
-
-              <div className="md:pt-9">
-                <p className="hero-enter hero-enter-3 max-w-md text-sm leading-6 text-white/65 sm:text-base sm:leading-7">
-                  {intro}
+                <p className="hero-enter hero-enter-3 mt-5 text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
+                  Full-stack developer
                 </p>
-                <div className="hero-enter hero-enter-4 mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <div className={statClass}>
-                    <Terminal className="size-4 text-white/50" />
-                    <p className="text-xl font-semibold leading-none">3+</p>
-                    <p className="text-xs uppercase tracking-[0.14em] text-white/50">
-                      Years Exp.
-                    </p>
-                  </div>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="rounded-none bg-white px-5 text-neutral-950 transition hover:bg-white/90"
-                  >
-                    <a href="#work" className={cursorTarget}>
-                      VIEW PROJECTS
-                      <ArrowUpRight />
-                    </a>
-                  </Button>
-                </div>
               </div>
             </div>
-            <div className="absolute inset-x-5 bottom-5 sm:inset-x-8 lg:inset-x-10">
-              <ScrollVelocity
-                texts={[techStack]}
-                velocity={-52}
-                numCopies={4}
-                className="pr-8 font-mono text-xl text-white/10 [word-spacing:1.5rem] sm:text-3xl"
-                parallaxClassName="py-3"
-              />
+            <div className="scroll-line absolute bottom-24 left-1/2 h-20 w-px -translate-x-1/2 bg-white/15" />
+            <div className="hero-logo-strip absolute inset-x-5 bottom-5 grid h-14 grid-cols-5 items-center gap-4 sm:inset-x-8 lg:inset-x-10">
+              {heroTechSlots.map(([first, second], index) => {
+                const FirstIcon = first.icon;
+                const SecondIcon = second.icon;
+
+                return (
+                  <div
+                    key={first.name}
+                    className="hero-logo-slot relative flex h-full items-center justify-center"
+                    style={{ "--delay": `${index * 0.16}s` } as React.CSSProperties}
+                  >
+                    <FirstIcon
+                      aria-label={first.name}
+                      className="hero-logo-face hero-logo-front absolute size-7 text-white/70 sm:size-9"
+                    />
+                    <SecondIcon
+                      aria-label={second.name}
+                      className="hero-logo-face hero-logo-back absolute size-7 text-white/70 sm:size-9"
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
       </GlareHover>
+      <section id="about" className={`${pageContainer} py-20`}>
+        <div className="grid gap-8 border-y border-white/10 py-10 md:grid-cols-[0.8fr_1.2fr] md:items-center">
+          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
+            About
+          </h2>
+          <div>
+            <p className="max-w-2xl text-sm leading-6 text-white/65 sm:text-base sm:leading-7">
+              {intro}
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className={statClass}>
+                <Terminal className="size-4 text-white/50" />
+                <p className="text-xl font-semibold leading-none">3+</p>
+                <p className="text-xs uppercase tracking-[0.14em] text-white/50">
+                  Years Exp.
+                </p>
+              </div>
+              <Button
+                asChild
+                size="lg"
+                className="rounded-none bg-white px-5 text-neutral-950 transition hover:bg-white/90"
+              >
+                <a href="#work" className={cursorTarget}>
+                  VIEW PROJECTS
+                  <ArrowUpRight />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
       <SelectedWorkSection work={selectedWork} cursorTarget={cursorTarget} />
       <section id="services" className={`${pageContainer} py-20`}>
         <h2 className="text-center text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
@@ -299,29 +322,85 @@ export default function Home() {
             Certifications
           </h2>
 
-          <div className="mt-10 border-l border-t border-white/10 bg-[#0A0A0A]/70 backdrop-blur-md">
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
             {certifications.map(({ name, issuer, credential, href }) => (
               <a
                 key={credential}
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className={`${cursorTarget} group flex items-center justify-between gap-5 border-b border-r border-white/10 px-5 py-5 text-white transition hover:bg-white/[0.04]`}
+                className={`${cursorTarget} group flex min-h-72 flex-col justify-between border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md transition hover:bg-white/[0.04]`}
               >
-                <div className="flex min-w-0 items-center gap-4">
-                  <span className="flex size-10 shrink-0 items-center justify-center border border-white/10 text-white/55">
-                    <Award className="size-5" />
-                  </span>
-                  <div className="min-w-0">
-                    <p className="font-medium text-white/85">{name}</p>
-                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
-                      {issuer} / Credential {credential}
-                    </p>
+                <div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+                      Certification
+                    </span>
+                    <span className="flex size-9 shrink-0 items-center justify-center border border-white/10 text-white/55">
+                      <Award className="size-4" />
+                    </span>
                   </div>
+                  <p className="mt-6 font-medium leading-6 text-white/85">{name}</p>
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+                    {issuer}
+                  </p>
                 </div>
-                <ArrowUpRight className="size-4 shrink-0 text-white/35 transition group-hover:text-white" />
+                <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-4">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">
+                    Credential {credential}
+                  </span>
+                  <ArrowUpRight className="size-4 shrink-0 text-white/35 transition group-hover:text-white" />
+                </div>
               </a>
             ))}
+            <div className={`${cursorTarget} min-h-72 border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md`}>
+              <div className="flex items-center justify-between gap-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+                  Education
+                </span>
+                <span className="flex size-9 shrink-0 items-center justify-center border border-white/10 text-white/55">
+                  <Award className="size-4" />
+                </span>
+              </div>
+              <p className="mt-6 font-medium leading-6 text-white/85">
+                Technological University (Thanlyin), Myanmar
+              </p>
+              <div className="mt-5 divide-y divide-white/10 border-t border-white/10">
+                {[
+                  ["2016 - 2017", "Bachelor of Engineering (Electronic)"],
+                  ["2015 - 2016", "Bachelor of Technology (Electronic)"],
+                  ["2012 - 2014", "Associateship of Government Technical Institute (Electronic)"],
+                ].map(([period, degree]) => (
+                  <div key={degree} className="py-3">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">{period}</p>
+                    <p className="mt-1 text-sm leading-5 text-white/70">{degree}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className={`${cursorTarget} min-h-72 border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md`}>
+              <div className="flex items-center justify-between gap-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+                  Training
+                </span>
+                <span className="flex size-9 shrink-0 items-center justify-center border border-white/10 text-white/55">
+                  <Award className="size-4" />
+                </span>
+              </div>
+              <p className="mt-6 font-medium leading-6 text-white/85">Additional Training</p>
+              <div className="mt-5 divide-y divide-white/10 border-t border-white/10">
+                {[
+                  "Diploma in Business English - MIB",
+                  "IELTS 4-Skills - MIB",
+                  "Professional Web Development - FairWay Technology (JS, PHP, Laravel, React, API)",
+                  "MERN Stack - WTC (PHP, JavaScript, Node.js, Next.js, MongoDB, Prisma)",
+                ].map((item) => (
+                  <p key={item} className="py-3 text-sm leading-6 text-white/65">
+                    {item}
+                  </p>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
