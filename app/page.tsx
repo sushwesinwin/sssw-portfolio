@@ -28,10 +28,10 @@ import { SelectedWorkSection } from "@/components/selected-work-section";
 import SpotlightCard from "@/components/SpotlightCard";
 import TargetCursor from "@/components/TargetCursor";
 
-const pageContainer = "mx-auto w-full max-w-5xl px-5 sm:px-8 lg:px-10";
+const pageContainer = "mx-auto w-full max-w-5xl px-4 sm:px-8 lg:px-10";
 const cursorTarget = "hero-cursor-target";
 const cursorSelector = `.${cursorTarget}`;
-const heroTitleClass = `${cursorTarget} hero-enter hero-enter-2 inline-block text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85`;
+const heroTitleClass = `${cursorTarget} hero-enter hero-enter-2 inline-block text-[clamp(1.6rem,9vw,3rem)] font-semibold leading-none tracking-normal text-white/85`;
 const intro =
   "Full-Stack Developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.";
 const selectedWork = [
@@ -230,7 +230,7 @@ export default function Home() {
       >
         <section className="w-full overflow-hidden">
           <TargetCursor targetSelector={cursorSelector} cursorColor="#ffffff" />
-          <div className={`${pageContainer} relative flex min-h-screen flex-col pb-5 pt-28 sm:pt-24`}>
+          <div className={`${pageContainer} relative flex min-h-screen flex-col pb-5 pt-24 sm:pt-24`}>
             <PortfolioNav />
 
             <div className="absolute inset-0 flex items-center justify-center px-5 text-center">
@@ -241,13 +241,13 @@ export default function Home() {
                 <h1 className={heroTitleClass}>
                   SU SHWE SIN WIN
                 </h1>
-                <p className="hero-enter hero-enter-3 mx-auto mt-5 max-w-lg text-sm leading-6 text-white/52">
+                <p className="hero-enter hero-enter-3 mx-auto mt-5 max-w-lg text-sm leading-6 text-white/52 sm:text-base">
                   {intro}
                 </p>
               </div>
             </div>
-            <div className="scroll-line absolute bottom-24 left-1/2 h-20 w-px -translate-x-1/2 bg-white/15" />
-            <div className="hero-logo-strip absolute inset-x-5 bottom-5 grid h-14 grid-cols-5 items-center gap-4 sm:inset-x-8 lg:inset-x-10">
+            <div className="scroll-line absolute bottom-20 left-1/2 h-16 w-px -translate-x-1/2 bg-white/15 sm:bottom-24 sm:h-20" />
+            <div className="hero-logo-strip absolute inset-x-4 bottom-5 grid h-12 grid-cols-5 items-center gap-3 sm:inset-x-8 sm:h-14 sm:gap-4 lg:inset-x-10">
               {heroTechSlots.map(([first, second], index) => {
                 const FirstIcon = first.icon;
                 const SecondIcon = second.icon;
@@ -274,17 +274,17 @@ export default function Home() {
         </section>
       </GlareHover>
       <SelectedWorkSection work={selectedWork} cursorTarget={cursorTarget} />
-      <section id="services" className={`${pageContainer} py-20`}>
-        <h2 className="text-center text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
+      <section id="services" className={`${pageContainer} py-16 sm:py-20`}>
+        <h2 className="text-center text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
           Tech Arsenal
         </h2>
 
-        <div className="mt-10 grid grid-cols-2 border-l border-t border-white/10 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 border-l border-t border-white/10 sm:mt-10 sm:grid-cols-3 lg:grid-cols-4">
           {techArsenal.map(({ name, icon: Icon, color, description }) => (
             <div
               key={name}
               title={description}
-              className={`${cursorTarget} group flex min-h-32 flex-col border-b border-r border-white/10 px-3 py-4 text-center text-white transition duration-300 hover:bg-white/[0.04]`}
+              className={`${cursorTarget} group flex min-h-28 flex-col border-b border-r border-white/10 px-3 py-4 text-center text-white transition duration-300 hover:bg-white/[0.04] sm:min-h-32`}
             >
               <div className="flex flex-1 flex-col items-center justify-center">
                 <span className={`flex size-9 items-center justify-center ${color}`}>
@@ -302,7 +302,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="certifications" className="relative overflow-hidden py-20">
+      <section id="certifications" className="relative overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 opacity-35">
           <Ferrofluid
             className="h-full w-full"
@@ -318,12 +318,12 @@ export default function Home() {
           />
         </div>
         <div className={`${pageContainer} relative`}>
-          <h2 className="text-center text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
+          <h2 className="text-center text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
             Education <br /> &amp; Professional Qualifications
           </h2>
 
-          <div className="mt-10 grid items-stretch gap-4 md:grid-cols-3">
-            <div className={`${cursorTarget} flex min-h-72 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md`}>
+          <div className="mt-8 grid items-stretch gap-4 sm:mt-10 md:grid-cols-3">
+            <div className={`${cursorTarget} flex min-h-0 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md sm:min-h-72`}>
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
                   Education
@@ -354,7 +354,7 @@ export default function Home() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className={`${cursorTarget} group flex min-h-72 flex-col justify-between border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md transition hover:bg-white/[0.04]`}
+                className={`${cursorTarget} group flex min-h-0 flex-col justify-between border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md transition hover:bg-white/[0.04] sm:min-h-72`}
               >
                 <div className="flex flex-1 flex-col">
                   <div className="flex items-center justify-between gap-4">
@@ -380,7 +380,7 @@ export default function Home() {
                 </div>
               </a>
             ))}
-            <div className={`${cursorTarget} flex min-h-72 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md`}>
+            <div className={`${cursorTarget} flex min-h-0 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md sm:min-h-72`}>
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
                   Training
@@ -410,11 +410,11 @@ export default function Home() {
         as="footer"
         data-native-cursor
         spotlightColor="rgba(255, 255, 255, 0.08)"
-        className="relative overflow-hidden bg-[#0A0A0A] px-5 pb-12 text-white sm:px-8 lg:px-10"
+        className="relative overflow-hidden bg-[#0A0A0A] px-4 pb-10 text-white sm:px-8 sm:pb-12 lg:px-10"
       >
         <div className="relative z-10 h-px w-full bg-white/10" />
-        <div className="relative z-10 mx-auto mt-10 grid w-full max-w-5xl gap-10 md:grid-cols-[1fr_2fr]">
-          <div>
+        <div className="relative z-10 mx-auto mt-8 grid w-full max-w-5xl gap-8 text-center sm:mt-10 sm:gap-10 md:grid-cols-[1fr_2fr] md:text-left">
+          <div className="flex flex-col items-center md:items-start">
             <p className="text-2xl font-black tracking-normal text-white">SU SHWE SIN WIN</p>
             <p className="mt-5 flex items-center gap-2 text-sm text-white/50">
               <span className="relative h-4 w-2 shrink-0" aria-hidden="true">
@@ -425,7 +425,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
             {footerColumns.map(({ title, links }) => (
               <div key={title}>
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">{title}</p>
@@ -441,8 +441,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto mt-14 flex w-full max-w-5xl flex-wrap items-center justify-between gap-6 text-xs font-semibold text-white/45">
-          <p>
+        <div className="relative z-10 mx-auto mt-10 flex w-full max-w-5xl flex-col items-center justify-center gap-4 text-center text-xs font-semibold text-white/45 sm:mt-14 sm:flex-row sm:justify-between sm:gap-6 sm:text-left">
+          <p className="max-w-[18rem] leading-5 sm:max-w-none">
             Built by SU SHWE SIN WIN. The source code is available on{" "}
             <a className="cursor-pointer transition hover:text-white" href="https://github.com/sushwesinwin/sssw-portfolio" target="_blank" rel="noreferrer">
               GitHub

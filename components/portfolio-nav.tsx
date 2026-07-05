@@ -45,10 +45,10 @@ const socialItems = [
 ];
 
 const linkButtonClass =
-  "hero-cursor-target rounded-none border-transparent bg-transparent px-5 text-white/75 hover:border-transparent hover:bg-transparent hover:text-white";
+  "hero-cursor-target rounded-none border-transparent bg-transparent px-3 text-xs text-white/75 hover:border-transparent hover:bg-transparent hover:text-white sm:px-5 sm:text-sm";
 
 const ctaButtonClass =
-  "hero-cursor-target h-9 rounded-none border-transparent bg-white px-3 font-mono text-xs uppercase tracking-[0.14em] text-neutral-950 shadow-[0_0_24px_rgba(255,255,255,0.12)] hover:border-transparent hover:bg-white hover:shadow-[0_0_32px_rgba(255,255,255,0.2)] sm:px-4";
+  "hero-cursor-target h-9 rounded-none border-transparent bg-white px-3 font-mono text-[11px] uppercase tracking-[0.12em] text-neutral-950 shadow-[0_0_24px_rgba(255,255,255,0.12)] hover:border-transparent hover:bg-white hover:shadow-[0_0_32px_rgba(255,255,255,0.2)] sm:px-4 sm:text-xs sm:tracking-[0.14em]";
 
 const contactButtonClass =
   "hero-cursor-target flex items-center gap-4 border border-white/10 bg-white/[0.03] p-4 text-left transition hover:border-white/20 hover:bg-white/[0.06]";
@@ -84,12 +84,12 @@ export function PortfolioNav() {
   return (
     <nav
       className={cn(
-        "fixed left-1/2 top-5 z-50 flex w-[calc(100%-2.5rem)] max-w-5xl -translate-x-1/2 items-center justify-between gap-6 bg-[#0A0A0A]/30 px-3 py-2 text-sm text-white/75 shadow-[0_12px_36px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 sm:w-[calc(100%-4rem)] sm:px-4 lg:w-[calc(100%-5rem)]",
+        "fixed left-1/2 top-4 z-50 flex w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 items-center justify-between gap-2 bg-[#0A0A0A]/30 px-2 py-2 text-sm text-white/75 shadow-[0_12px_36px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 sm:top-5 sm:w-[calc(100%-4rem)] sm:gap-6 sm:px-4 lg:w-[calc(100%-5rem)]",
         scrolled && "bg-[#0A0A0A]/65",
         hidden && "-translate-y-24 opacity-0"
       )}
     >
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div className="flex min-w-0 items-center gap-1 sm:gap-4">
         {navItems.map(([href, label]) => (
           <Button
             key={href}
@@ -103,7 +103,7 @@ export function PortfolioNav() {
         ))}
       </div>
 
-      <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2">
+      <div className="flex min-w-0 items-center justify-end gap-2">
         <Drawer direction="bottom">
           <DrawerTrigger asChild>
             <Button variant="outline" size="sm" className={ctaButtonClass}>
@@ -112,7 +112,7 @@ export function PortfolioNav() {
               <ArrowRight className="size-4 animate-[cta-arrow_1.2s_ease-in-out_infinite] transition-transform group-hover/button:translate-x-0.5" />
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="min-h-[68vh] p-0 text-white before:inset-x-0 before:top-0 before:rounded-b-none before:rounded-t-2xl before:border-white/10 before:bg-[#151515] sm:before:inset-x-0">
+          <DrawerContent className="max-h-[92svh] min-h-[68svh] overflow-y-auto p-0 text-white before:inset-x-0 before:top-0 before:rounded-b-none before:rounded-t-2xl before:border-white/10 before:bg-[#151515] sm:before:inset-x-0">
             <DrawerClose asChild>
               <button
                 type="button"
@@ -124,7 +124,7 @@ export function PortfolioNav() {
               </button>
             </DrawerClose>
 
-            <div className="mx-auto grid min-h-[68vh] w-full max-w-5xl gap-6 px-5 py-14 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-8 lg:px-10 lg:py-16">
+            <div className="mx-auto grid min-h-[68svh] w-full max-w-5xl gap-5 px-4 py-12 sm:px-8 sm:py-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-8 lg:px-10 lg:py-16">
               <DrawerHeader className="items-start gap-4 p-0 text-left group-data-[vaul-drawer-direction=bottom]/drawer-content:text-left lg:gap-5">
                 <p className="font-mono text-xs uppercase tracking-[0.24em] text-white/35">
                   Available for work

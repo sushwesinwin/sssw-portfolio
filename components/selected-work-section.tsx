@@ -84,15 +84,15 @@ export function SelectedWorkSection({
       style={{ height: `${work.length * 100}svh` }}
     >
       <div className="sticky top-0 h-[100svh] overflow-hidden">
-        <div className="mx-auto flex h-full min-h-0 w-full max-w-5xl flex-col gap-6 px-5 pb-6 pt-32 sm:px-8 sm:gap-7 sm:pb-8 lg:gap-8 lg:px-10 lg:pb-10">
+        <div className="mx-auto flex h-full min-h-0 w-full max-w-5xl flex-col gap-4 px-4 pb-5 pt-24 sm:gap-7 sm:px-8 sm:pb-8 sm:pt-32 lg:gap-8 lg:px-10 lg:pb-10">
           <div className="shrink-0 text-center">
-            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
+            <h2 className="text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
               Selected Work
             </h2>
           </div>
 
-          <div className="grid min-h-0 flex-1 items-center gap-7 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
-            <div className="relative h-[clamp(18rem,43svh,27rem)] overflow-hidden lg:h-[clamp(22rem,52svh,31rem)] [mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]">
+          <div className="grid min-h-0 flex-1 items-center gap-4 sm:gap-7 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
+            <div className="relative h-[clamp(12rem,32svh,18rem)] overflow-hidden sm:h-[clamp(18rem,43svh,27rem)] lg:h-[clamp(22rem,52svh,31rem)] [mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]">
               {work.map((item, index) => {
                 const offset = index - activeWorkIndex;
                 const isActive = offset === 0;
@@ -110,7 +110,7 @@ export function SelectedWorkSection({
                     <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-white/35">
                       {item.period}
                     </p>
-                    <h3 className="text-2xl font-semibold text-white sm:text-[1.7rem]">
+                    <h3 className="text-xl font-semibold text-white sm:text-[1.7rem]">
                       {item.role}
                     </h3>
                     <p className="mt-2 flex items-center gap-2 text-sm text-white/55">
@@ -118,7 +118,7 @@ export function SelectedWorkSection({
                       <span className="size-1.5 rounded-full bg-red-500" />
                     </p>
                     {isActive && (
-                      <p className="mt-5 max-w-lg text-sm leading-6 text-white/52">
+                      <p className="mt-4 max-w-lg text-sm leading-6 text-white/52 sm:mt-5">
                         {item.summary}
                       </p>
                     )}
@@ -127,11 +127,11 @@ export function SelectedWorkSection({
               })}
             </div>
 
-            <div className="relative pr-6 lg:pr-8">
+            <div className="relative pr-4 lg:pr-8">
               <div className="pointer-events-none absolute right-0 top-1/2 h-20 w-px -translate-y-1/2 bg-white/15">
                 <span className="block h-[var(--work-progress,0%)] w-full bg-white/65" />
               </div>
-              <div className="relative h-[clamp(12rem,30svh,18rem)] overflow-hidden bg-white/[0.02] p-2 shadow-[0_24px_70px_rgba(255,255,255,0.05)] lg:h-[min(46svh,28rem)]">
+              <div className="relative h-[clamp(9rem,25svh,13rem)] overflow-hidden bg-white/[0.02] p-2 shadow-[0_24px_70px_rgba(255,255,255,0.05)] sm:h-[clamp(12rem,30svh,18rem)] lg:h-[min(46svh,28rem)]">
                 {active.images.map((project, index) => {
                   const isActiveProject = index === activeImageIndex;
 
@@ -164,7 +164,7 @@ export function SelectedWorkSection({
                 })}
               </div>
 
-              <div className="mt-5 text-center">
+              <div className="mt-3 text-center sm:mt-5">
                 <p className="text-xs uppercase tracking-[0.14em] text-white/45">
                   {activeProject.title}
                 </p>
@@ -172,7 +172,7 @@ export function SelectedWorkSection({
             </div>
           </div>
 
-          <div className="flex shrink-0 flex-wrap items-center gap-2 border-t border-white/10 pt-4">
+          <div className="flex max-h-20 shrink-0 flex-wrap items-center gap-2 overflow-hidden border-t border-white/10 pt-3 sm:max-h-none sm:pt-4">
             {activeProjectStack.map((stackItem) => (
               <span
                 key={stackItem}
