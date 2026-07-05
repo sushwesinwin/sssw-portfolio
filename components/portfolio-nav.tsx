@@ -84,8 +84,8 @@ export function PortfolioNav() {
   return (
     <nav
       className={cn(
-        "fixed left-1/2 top-5 z-50 flex w-[calc(100%-2.5rem)] max-w-5xl -translate-x-1/2 items-center justify-between gap-6 px-0 py-0 text-sm text-white/75 transition-all duration-300 sm:w-[calc(100%-4rem)] lg:w-[calc(100%-5rem)]",
-        scrolled && "bg-[#0A0A0A]/80 px-4 py-3 backdrop-blur-md",
+        "fixed left-1/2 top-5 z-50 flex w-[calc(100%-2.5rem)] max-w-5xl -translate-x-1/2 items-center justify-between gap-6 bg-[#0A0A0A]/30 px-3 py-2 text-sm text-white/75 shadow-[0_12px_36px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 sm:w-[calc(100%-4rem)] sm:px-4 lg:w-[calc(100%-5rem)]",
+        scrolled && "bg-[#0A0A0A]/65",
         hidden && "-translate-y-24 opacity-0"
       )}
     >

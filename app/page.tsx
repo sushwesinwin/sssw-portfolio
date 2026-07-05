@@ -1,5 +1,6 @@
-import { ArrowUpRight, Award } from "lucide-react";
+import { ArrowUpRight, Award, Mail } from "lucide-react";
 import type { IconType } from "react-icons";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 import {
   SiClickup,
   SiDocker,
@@ -24,6 +25,7 @@ import Ferrofluid from "@/components/Ferrofluid";
 import GlareHover from "@/components/GlareHover";
 import { PortfolioNav } from "@/components/portfolio-nav";
 import { SelectedWorkSection } from "@/components/selected-work-section";
+import SpotlightCard from "@/components/SpotlightCard";
 import TargetCursor from "@/components/TargetCursor";
 
 const pageContainer = "mx-auto w-full max-w-5xl px-5 sm:px-8 lg:px-10";
@@ -186,6 +188,31 @@ const certifications = [
     issuer: "Coursera",
     credential: "SW3ZRVWYASIB",
     href: "https://coursera.org/share/3e5de2d37ee9fd9e9951048155962625",
+  },
+];
+const footerColumns = [
+  {
+    title: "Explore",
+    links: [
+      ["Work", "#work"],
+      ["Stack", "#services"],
+      ["Education", "#certifications"],
+    ],
+  },
+  {
+    title: "Contact",
+    links: [
+      ["Email", "mailto:sushwesinw@gmail.com"],
+      ["WhatsApp", "https://wa.me/6584078490"],
+      ["LinkedIn", "https://www.linkedin.com/in/su-shwe-sin-win/"],
+    ],
+  },
+  {
+    title: "Profiles",
+    links: [
+      ["GitHub", "https://github.com/sushwesinwin"],
+      ["daily.dev", "https://daily.dev/sssw"],
+    ],
   },
 ];
 
@@ -379,6 +406,65 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <SpotlightCard
+        as="footer"
+        data-native-cursor
+        spotlightColor="rgba(255, 255, 255, 0.08)"
+        className="relative overflow-hidden bg-[#0A0A0A] px-5 pb-12 text-white sm:px-8 lg:px-10"
+      >
+        <div className="relative z-10 h-px w-full bg-white/10" />
+        <div className="relative z-10 mx-auto mt-10 grid w-full max-w-5xl gap-10 md:grid-cols-[1fr_2fr]">
+          <div>
+            <p className="text-2xl font-black tracking-normal text-white">SU SHWE SIN WIN</p>
+            <p className="mt-5 flex items-center gap-2 text-sm text-white/50">
+              <span className="relative h-4 w-2 shrink-0" aria-hidden="true">
+                <span className="absolute left-1/2 top-0 size-1.5 -translate-x-1/2 rounded-full border border-white/75" />
+                <span className="absolute left-1/2 top-1.5 h-2.5 w-px -translate-x-1/2 bg-white/75" />
+              </span>
+              Singapore
+            </p>
+          </div>
+
+          <div className="grid gap-10 sm:grid-cols-3">
+            {footerColumns.map(({ title, links }) => (
+              <div key={title}>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">{title}</p>
+                <div className="mt-4 grid gap-3">
+                  {links.map(([label, href]) => (
+                    <a key={label} href={href} className="cursor-pointer text-sm font-semibold text-white/65 transition hover:text-white">
+                      {label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative z-10 mx-auto mt-14 flex w-full max-w-5xl flex-wrap items-center justify-between gap-6 text-xs font-semibold text-white/45">
+          <p>
+            Built by SU SHWE SIN WIN. The source code is available on{" "}
+            <a className="cursor-pointer transition hover:text-white" href="https://github.com/sushwesinwin/sssw-portfolio" target="_blank" rel="noreferrer">
+              GitHub
+            </a>.
+          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            <a className="flex size-9 cursor-pointer items-center justify-center transition hover:text-white" href="mailto:sushwesinw@gmail.com" aria-label="Email">
+              <Mail className="size-4" />
+            </a>
+            <a className="flex size-9 cursor-pointer items-center justify-center transition hover:text-white" href="https://github.com/sushwesinwin" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <FiGithub className="size-4" />
+            </a>
+            <a className="flex size-9 cursor-pointer items-center justify-center transition hover:text-white" href="https://www.linkedin.com/in/su-shwe-sin-win/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <FiLinkedin className="size-4" />
+            </a>
+          </div>
+        </div>
+
+        <p aria-hidden="true" className="absolute bottom-[-0.18em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[clamp(3.2rem,13vw,14rem)] font-black leading-none tracking-normal text-white/[0.035]">
+          DEVELOPER
+        </p>
+      </SpotlightCard>
     </main>
   );
 }

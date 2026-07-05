@@ -31,6 +31,7 @@ const getContainingBlockOffset = (block) => {
 
 export default function TargetCursor({
   targetSelector = ".cursor-target",
+  nativeCursorSelector = "[data-native-cursor]",
   spinDuration = 2,
   hideDefaultCursor = true,
   hoverDuration = 0.2,
@@ -161,7 +162,14 @@ export default function TargetCursor({
 
     tickerFnRef.current = tickerFn;
 
-    const moveHandler = (event) => moveCursor(event.clientX, event.clientY);
+    const moveHandler = (event) => {
+      const useNativeCursor = event.target.closest(nativeCursorSelector);
+      if (hideDefaultCursor) {
+        document.body.style.cursor = useNativeCursor ? "" : "none";
+      }
+      gsap.to(cursor, { autoAlpha: useNativeCursor ? 0 : 1, duration: 0.12 });
+      moveCursor(event.clientX, event.clientY);
+    };
     window.addEventListener("mousemove", moveHandler);
 
     const scrollHandler = () => {
@@ -373,6 +381,7 @@ export default function TargetCursor({
     };
   }, [
     targetSelector,
+    nativeCursorSelector,
     spinDuration,
     moveCursor,
     constants,
