@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ssswdev-portfolio.vercel.app"),
   title: "Su Shwe Sin Win | Full-Stack Developer",
   description:
     "Portfolio of Su Shwe Sin Win, a full-stack developer building scalable SaaS applications and modern web experiences.",
@@ -25,6 +26,14 @@ export const metadata: Metadata = {
     description:
       "Full-stack developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.",
     type: "website",
+    images: ["/opengraph.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Su Shwe Sin Win | Full-Stack Developer",
+    description:
+      "Full-stack developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.",
+    images: ["/opengraph.png"],
   },
 };
 
