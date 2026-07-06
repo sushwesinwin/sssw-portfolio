@@ -6,7 +6,19 @@ import {
   WhatsappIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight, CodeXml, Copy, Mail, MapPin, Phone, X } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  CodeXml,
+  Copy,
+  Folder,
+  Home,
+  Layers,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  X,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -22,8 +34,10 @@ import {
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  ["#work", "WORK"],
-  ["#services", "STACK"],
+  { href: "#", label: "Home", icon: Home },
+  { href: "#", label: "Project", icon: Folder },
+  { href: "#work", label: "Experience", icon: BriefcaseBusiness },
+  { href: "#services", label: "Stack", icon: Layers },
 ];
 
 const socialItems = [
@@ -45,10 +59,13 @@ const socialItems = [
 ];
 
 const linkButtonClass =
-  "hero-cursor-target rounded-none border-transparent bg-transparent px-3 text-xs text-white/75 hover:border-transparent hover:bg-transparent hover:text-white sm:px-5 sm:text-sm";
+  "hero-cursor-target group relative flex size-9 rounded-none border-transparent bg-transparent p-0 text-white/75 hover:border-transparent hover:bg-transparent hover:text-white";
 
 const ctaButtonClass =
-  "hero-cursor-target h-9 rounded-none border-transparent bg-white px-3 font-mono text-[11px] uppercase tracking-[0.12em] text-neutral-950 shadow-[0_0_24px_rgba(255,255,255,0.12)] hover:border-transparent hover:bg-white hover:shadow-[0_0_32px_rgba(255,255,255,0.2)] sm:px-4 sm:text-xs sm:tracking-[0.14em]";
+  "hero-cursor-target group relative flex size-9 rounded-none border-transparent bg-transparent p-0 text-white/75 hover:border-transparent hover:bg-transparent hover:text-white";
+
+const tooltipClass =
+  "pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 rounded-md bg-white/15 px-2.5 py-1 text-xs font-medium text-white opacity-0 backdrop-blur transition group-hover:opacity-100 group-focus-visible:opacity-100";
 
 const contactButtonClass =
   "hero-cursor-target flex items-center gap-3 border border-white/10 bg-white/[0.03] p-3 text-left transition hover:border-white/20 hover:bg-white/[0.06] sm:gap-4 sm:p-4";
@@ -85,35 +102,40 @@ export function PortfolioNav() {
   return (
     <nav
       className={cn(
-        "fixed left-1/2 top-4 z-50 flex w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 items-center justify-between gap-2 bg-[#0A0A0A]/30 px-2 py-2 text-sm text-white/75 shadow-[0_12px_36px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 sm:top-5 sm:w-[calc(100%-4rem)] sm:gap-6 sm:px-4 lg:w-[calc(100%-5rem)]",
+        "fixed left-1/2 top-5 z-50 flex -translate-x-1/2 items-center gap-3 rounded-[1.2rem] bg-white/[0.045] px-4 py-2.5 text-white/75 shadow-[0_12px_36px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 sm:top-7 sm:gap-4 sm:px-5",
         scrolled && "bg-[#0A0A0A]/65",
         hidden && "-translate-y-24 opacity-0"
       )}
     >
-      <div className="flex min-w-0 items-center gap-1 sm:gap-4">
-        {navItems.map(([href, label]) => (
+      {navItems.map(({ href, label, icon: Icon }) => (
+        <Button
+          key={href}
+          asChild
+          variant="outline"
+          size="sm"
+          className={linkButtonClass}
+        >
+          <a href={href} aria-label={label} title={label}>
+            <Icon className="size-5 stroke-[1.8]" />
+            <span className={tooltipClass}>{label}</span>
+          </a>
+        </Button>
+      ))}
+
+      <Drawer direction="bottom">
+        <DrawerTrigger asChild>
           <Button
-            key={href}
-            asChild
             variant="outline"
             size="sm"
-            className={linkButtonClass}
+            className={ctaButtonClass}
+            aria-label="Contact"
+            title="Contact"
           >
-            <a href={href}>{label}</a>
+            <MessageCircle className="size-5 stroke-[1.8]" />
+            <span className={tooltipClass}>Contact</span>
           </Button>
-        ))}
-      </div>
-
-      <div className="flex min-w-0 items-center justify-end gap-2">
-        <Drawer direction="bottom">
-          <DrawerTrigger asChild>
-            <Button variant="outline" size="sm" className={ctaButtonClass}>
-              <span className="sm:hidden">Contact</span>
-              <span className="hidden sm:inline">Get in touch</span>
-              <ArrowRight className="size-4 animate-[cta-arrow_1.2s_ease-in-out_infinite] transition-transform group-hover/button:translate-x-0.5" />
-            </Button>
-          </DrawerTrigger>
-          <DrawerContent className="h-[calc(100svh-0.75rem)] overflow-hidden rounded-t-2xl border border-b-0 border-white/10 bg-[#151515] p-0 text-white before:hidden sm:h-auto sm:min-h-[68svh] sm:max-h-[92svh]">
+        </DrawerTrigger>
+        <DrawerContent className="h-[calc(100svh-0.75rem)] overflow-hidden rounded-t-2xl border border-b-0 border-white/10 bg-[#151515] p-0 text-white before:hidden sm:h-auto sm:min-h-[68svh] sm:max-h-[92svh]">
             <DrawerClose asChild>
               <button
                 type="button"
@@ -233,8 +255,7 @@ export function PortfolioNav() {
               </div>
             </div>
           </DrawerContent>
-        </Drawer>
-      </div>
+      </Drawer>
     </nav>
   );
 }

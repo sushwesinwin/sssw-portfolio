@@ -87,7 +87,7 @@ export function SelectedWorkSection({
         <div className="mx-auto flex h-full min-h-0 w-full max-w-5xl flex-col gap-4 px-4 pb-5 pt-24 sm:gap-7 sm:px-8 sm:pb-8 sm:pt-32 lg:gap-8 lg:px-10 lg:pb-10">
           <div className="shrink-0 text-center">
             <h2 className="text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
-              Selected Work
+              3 Years of Experience
             </h2>
           </div>
 
