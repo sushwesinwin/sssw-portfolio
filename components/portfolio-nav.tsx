@@ -3,23 +3,24 @@
 import {
   GithubIcon,
   Linkedin02Icon,
+  TelegramIcon,
   WhatsappIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
+  ArrowRight,
   BriefcaseBusiness,
-  CodeXml,
   Copy,
   Folder,
   Home,
   Layers,
   Mail,
   MapPin,
-  MessageCircle,
   Phone,
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { SiDailydotdev } from "react-icons/si";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -59,13 +60,13 @@ const socialItems = [
 ];
 
 const linkButtonClass =
-  "hero-cursor-target group relative flex size-9 rounded-none border-transparent bg-transparent p-0 text-white/75 hover:border-transparent hover:bg-transparent hover:text-white";
+  "hero-cursor-target group relative size-8 rounded-none border-transparent bg-transparent p-0 text-white/75 hover:border-transparent hover:bg-transparent hover:text-white sm:size-9";
 
 const ctaButtonClass =
-  "hero-cursor-target group relative flex size-9 rounded-none border-transparent bg-transparent p-0 text-white/75 hover:border-transparent hover:bg-transparent hover:text-white";
+  "hero-cursor-target h-8 w-auto rounded-none border-transparent bg-white px-2 py-0 text-neutral-950 hover:border-transparent hover:bg-white/90 hover:text-neutral-950 sm:h-9 sm:px-3";
 
 const tooltipClass =
-  "pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 rounded-md bg-white/15 px-2.5 py-1 text-xs font-medium text-white opacity-0 backdrop-blur transition group-hover:opacity-100 group-focus-visible:opacity-100";
+  "pointer-events-none absolute left-1/2 top-full z-50 mt-3 hidden -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-md bg-neutral-900 px-2.5 py-1 text-xs font-medium text-white opacity-0 shadow-lg shadow-black/30 transition sm:block sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:translate-y-0 sm:group-focus-visible:opacity-100";
 
 const contactButtonClass =
   "hero-cursor-target flex items-center gap-3 border border-white/10 bg-white/[0.03] p-3 text-left transition hover:border-white/20 hover:bg-white/[0.06] sm:gap-4 sm:p-4";
@@ -79,6 +80,7 @@ export function PortfolioNav() {
   const [copied, setCopied] = useState(false);
   const email = "sushwesinw@gmail.com";
   const phone = "+65 8407 8490";
+  const telegram = "@sushwesinwin";
   const address = "Choa Chu Kang Drive, BLK687B#09-386, S682687";
   const mapUrl = "https://maps.app.goo.gl/Z5vVtD72bZUHWyH86";
 
@@ -102,7 +104,7 @@ export function PortfolioNav() {
   return (
     <nav
       className={cn(
-        "fixed left-1/2 top-5 z-50 flex -translate-x-1/2 items-center gap-3 rounded-[1.2rem] bg-white/[0.045] px-4 py-2.5 text-white/75 shadow-[0_12px_36px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 sm:top-7 sm:gap-4 sm:px-5",
+        "fixed left-1/2 top-5 z-50 flex max-w-[calc(100vw-1rem)] -translate-x-1/2 items-center gap-1.5 rounded-[1.2rem] bg-white/[0.045] px-2 py-2 text-white/75 shadow-[0_12px_36px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 sm:top-7 sm:gap-3 sm:px-4 sm:py-2.5",
         scrolled && "bg-[#0A0A0A]/65",
         hidden && "-translate-y-24 opacity-0"
       )}
@@ -115,9 +117,9 @@ export function PortfolioNav() {
           size="sm"
           className={linkButtonClass}
         >
-          <a href={href} aria-label={label} title={label}>
-            <Icon className="size-5 stroke-[1.8]" />
-            <span className={tooltipClass}>{label}</span>
+          <a href={href} aria-label={label}>
+            <Icon className="size-4 stroke-[1.8] sm:size-5" />
+            <span aria-hidden="true" className={tooltipClass}>{label}</span>
           </a>
         </Button>
       ))}
@@ -129,10 +131,11 @@ export function PortfolioNav() {
             size="sm"
             className={ctaButtonClass}
             aria-label="Contact"
-            title="Contact"
           >
-            <MessageCircle className="size-5 stroke-[1.8]" />
-            <span className={tooltipClass}>Contact</span>
+            <span className="hidden whitespace-nowrap font-mono text-[9px] font-semibold uppercase tracking-[0.12em] min-[390px]:inline sm:text-[10px]">
+              Get in touch
+            </span>
+            <ArrowRight className="size-4 animate-[cta-arrow_1.2s_ease-in-out_infinite] stroke-[1.8] text-orange-500" />
           </Button>
         </DrawerTrigger>
         <DrawerContent className="h-[calc(100svh-0.75rem)] overflow-hidden rounded-t-2xl border border-b-0 border-white/10 bg-[#151515] p-0 text-white before:hidden sm:h-auto sm:min-h-[68svh] sm:max-h-[92svh]">
@@ -159,6 +162,27 @@ export function PortfolioNav() {
                   <DrawerDescription className="hidden max-w-md text-sm leading-6 text-white/50 sm:block sm:text-base sm:leading-7">
                     Open to full-stack roles, freelance builds, and product engineering work.
                   </DrawerDescription>
+                  <div className="flex w-24 items-center justify-between pt-1">
+                    {socialItems.map(({ href, label, icon }) => (
+                      <a
+                        key={href}
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={label}
+                        className="hero-cursor-target group relative flex size-6 items-center justify-center text-orange-500 transition hover:text-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/40"
+                      >
+                        {icon ? (
+                          <HugeiconsIcon icon={icon} size={21} strokeWidth={1.35} />
+                        ) : (
+                          <SiDailydotdev className="size-4" />
+                        )}
+                        <span className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap border border-white/10 bg-neutral-950 px-2.5 py-1.5 text-[10px] font-semibold text-white opacity-0 shadow-xl shadow-black/30 transition duration-150 group-hover:-translate-y-0.5 group-hover:opacity-100 group-focus-visible:-translate-y-0.5 group-focus-visible:opacity-100">
+                          {label}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </DrawerHeader>
 
@@ -166,14 +190,14 @@ export function PortfolioNav() {
                 <div className="grid grid-cols-[1fr_auto] items-center gap-3 border border-white/10 bg-white/[0.035] p-3 sm:p-4">
                   <a
                     href={`mailto:${email}`}
-                    className="hero-cursor-target flex min-w-0 items-center gap-4 text-left transition hover:text-white/80"
+                    className="hero-cursor-target flex min-w-0 items-center gap-3 text-left transition hover:text-white/80 sm:gap-4"
                   >
-                    <span className="flex size-10 shrink-0 items-center justify-center bg-white text-neutral-950 sm:size-12">
-                      <Mail className="size-4 sm:size-5" />
+                    <span className={contactIconClass}>
+                      <Mail className="size-4" />
                     </span>
                     <span className="min-w-0">
                       <span className="block text-xs uppercase tracking-[0.16em] text-white/35">Email</span>
-                      <span className="block break-all font-mono text-sm text-white sm:text-xl">{email}</span>
+                      <span className="block break-all font-mono text-sm text-white/75">{email}</span>
                     </span>
                   </a>
                   <button
@@ -221,6 +245,20 @@ export function PortfolioNav() {
                     </span>
                   </a>
                   <a
+                    href="https://t.me/sushwesinwin"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={contactButtonClass}
+                  >
+                    <span className={contactIconClass}>
+                      <HugeiconsIcon icon={TelegramIcon} size={18} />
+                    </span>
+                    <span>
+                      <span className="block text-xs uppercase tracking-[0.16em] text-white/35">Telegram</span>
+                      <span className="block font-mono text-sm text-white/75">{telegram}</span>
+                    </span>
+                  </a>
+                  <a
                     href={mapUrl}
                     target="_blank"
                     rel="noreferrer"
@@ -234,23 +272,6 @@ export function PortfolioNav() {
                       <span className="block text-sm leading-6 text-white/65">{address}</span>
                     </span>
                   </a>
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {socialItems.map(({ href, label, icon }) => (
-                    <a
-                      key={href}
-                      href={href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={label}
-                      className="hero-cursor-target group relative flex h-12 items-center justify-center border border-white/10 bg-white/[0.03] text-white/70 transition hover:border-white/20 hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/25"
-                    >
-                      {icon ? <HugeiconsIcon icon={icon} size={18} /> : <CodeXml className="size-[18px]" />}
-                      <span className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap border border-white/10 bg-neutral-950 px-2.5 py-1.5 text-[10px] font-semibold text-white opacity-0 shadow-xl shadow-black/30 transition duration-150 group-hover:-translate-y-0.5 group-hover:opacity-100 group-focus-visible:-translate-y-0.5 group-focus-visible:opacity-100">
-                        {label}
-                      </span>
-                    </a>
-                  ))}
                 </div>
               </div>
             </div>

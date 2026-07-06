@@ -59,13 +59,13 @@ export default function Home() {
                     Specialize in scalable SaaS applications, modern web technologies, and high-performance user experiences.
                   </p>
                 </div>
-                <div className={`${cursorTarget} hero-enter hero-enter-1 h-[24rem] w-full min-w-0 sm:h-[30rem] lg:h-[34rem]`}>
+                <div className="hero-enter hero-enter-1 h-[24rem] w-full min-w-0 sm:h-[30rem] lg:h-[34rem]">
                   <Lanyard
                     position={[0, 0, 22]}
                     gravity={[0, -35, 0]}
                     fov={22}
                     frontImage="/lanyard-card.png"
-                    imageFit="cover"
+                    imageFit="contain"
                     lanyardWidth={0.9}
                     cardScale={3}
                   />
