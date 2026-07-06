@@ -112,7 +112,7 @@ export function PortfolioNav() {
               <ArrowRight className="size-4 animate-[cta-arrow_1.2s_ease-in-out_infinite] transition-transform group-hover/button:translate-x-0.5" />
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="max-h-[92svh] min-h-[68svh] overflow-y-auto p-0 text-white before:inset-x-0 before:top-0 before:rounded-b-none before:rounded-t-2xl before:border-white/10 before:bg-[#151515] sm:before:inset-x-0">
+          <DrawerContent className="max-h-[92svh] min-h-[68svh] overflow-hidden p-0 text-white before:inset-x-0 before:top-0 before:rounded-b-none before:rounded-t-2xl before:border-white/10 before:bg-[#151515] sm:before:inset-x-0">
             <DrawerClose asChild>
               <button
                 type="button"
@@ -124,28 +124,28 @@ export function PortfolioNav() {
               </button>
             </DrawerClose>
 
-            <div className="mx-auto grid min-h-[68svh] w-full max-w-5xl gap-5 px-4 py-12 sm:px-8 sm:py-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-8 lg:px-10 lg:py-16">
-              <DrawerHeader className="items-start gap-4 p-0 text-left group-data-[vaul-drawer-direction=bottom]/drawer-content:text-left lg:gap-5">
+            <div className="mx-auto grid min-h-[68svh] w-full max-w-5xl gap-4 px-4 py-9 sm:gap-5 sm:px-8 sm:py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-8 lg:px-10 lg:py-16">
+              <DrawerHeader className="items-start gap-3 p-0 text-left group-data-[vaul-drawer-direction=bottom]/drawer-content:text-left lg:gap-5">
                 <p className="font-mono text-xs uppercase tracking-[0.24em] text-white/35">
                   Available for work
                 </p>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <DrawerTitle className="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
                     Get in touch
                   </DrawerTitle>
-                  <DrawerDescription className="max-w-md text-base leading-7 text-white/50">
+                  <DrawerDescription className="max-w-md text-sm leading-6 text-white/50 sm:text-base sm:leading-7">
                     Open to full-stack roles, freelance builds, and product engineering work.
                   </DrawerDescription>
                 </div>
               </DrawerHeader>
 
               <div className="grid gap-3">
-                <div className="grid gap-3 border border-white/10 bg-white/[0.035] p-4 sm:grid-cols-[1fr_auto] sm:items-center">
+                <div className="grid gap-3 border border-white/10 bg-white/[0.035] p-3 sm:grid-cols-[1fr_auto] sm:items-center sm:p-4">
                   <a
                     href={`mailto:${email}`}
                     className="hero-cursor-target flex min-w-0 items-center gap-4 text-left transition hover:text-white/80"
                   >
-                    <span className="flex size-12 shrink-0 items-center justify-center bg-white text-neutral-950">
+                    <span className="flex size-10 shrink-0 items-center justify-center bg-white text-neutral-950 sm:size-12">
                       <Mail className="size-5" />
                     </span>
                     <span className="min-w-0">
@@ -161,7 +161,7 @@ export function PortfolioNav() {
                       setCopied(true);
                       window.setTimeout(() => setCopied(false), 1500);
                     }}
-                    className="hero-cursor-target flex h-11 items-center justify-center gap-2 bg-white/[0.06] px-4 font-mono text-xs uppercase tracking-[0.14em] text-white/70 transition hover:bg-white/[0.1] hover:text-white sm:w-32"
+                    className="hero-cursor-target flex h-10 items-center justify-center gap-2 bg-white/[0.06] px-4 font-mono text-xs uppercase tracking-[0.14em] text-white/70 transition hover:bg-white/[0.1] hover:text-white sm:h-11 sm:w-32"
                   >
                     {copied ? (
                       "Copied"
@@ -215,9 +215,12 @@ export function PortfolioNav() {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={label}
-                      className="hero-cursor-target flex h-12 items-center justify-center border border-white/10 bg-white/[0.03] text-white/70 transition hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
+                      className="hero-cursor-target group relative flex h-12 items-center justify-center border border-white/10 bg-white/[0.03] text-white/70 transition hover:border-white/20 hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/25"
                     >
                       {icon ? <HugeiconsIcon icon={icon} size={18} /> : <CodeXml className="size-[18px]" />}
+                      <span className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap border border-white/10 bg-neutral-950 px-2.5 py-1.5 text-[10px] font-semibold text-white opacity-0 shadow-xl shadow-black/30 transition duration-150 group-hover:-translate-y-0.5 group-hover:opacity-100 group-focus-visible:-translate-y-0.5 group-focus-visible:opacity-100">
+                        {label}
+                      </span>
                     </a>
                   ))}
                 </div>
