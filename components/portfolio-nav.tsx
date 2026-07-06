@@ -51,10 +51,10 @@ const ctaButtonClass =
   "hero-cursor-target h-9 rounded-none border-transparent bg-white px-3 font-mono text-[11px] uppercase tracking-[0.12em] text-neutral-950 shadow-[0_0_24px_rgba(255,255,255,0.12)] hover:border-transparent hover:bg-white hover:shadow-[0_0_32px_rgba(255,255,255,0.2)] sm:px-4 sm:text-xs sm:tracking-[0.14em]";
 
 const contactButtonClass =
-  "hero-cursor-target flex items-center gap-4 border border-white/10 bg-white/[0.03] p-4 text-left transition hover:border-white/20 hover:bg-white/[0.06]";
+  "hero-cursor-target flex items-center gap-3 border border-white/10 bg-white/[0.03] p-3 text-left transition hover:border-white/20 hover:bg-white/[0.06] sm:gap-4 sm:p-4";
 
 const contactIconClass =
-  "flex size-11 shrink-0 items-center justify-center bg-white/[0.06] text-white/70";
+  "flex size-10 shrink-0 items-center justify-center bg-white/[0.06] text-white/70 sm:size-11";
 
 export function PortfolioNav() {
   const [scrolled, setScrolled] = useState(false);
@@ -63,6 +63,7 @@ export function PortfolioNav() {
   const email = "sushwesinw@gmail.com";
   const phone = "+65 8407 8490";
   const address = "Choa Chu Kang Drive, BLK687B#09-386, S682687";
+  const mapUrl = "https://maps.app.goo.gl/Z5vVtD72bZUHWyH86";
 
   useEffect(() => {
     let lastY = window.scrollY;
@@ -112,7 +113,7 @@ export function PortfolioNav() {
               <ArrowRight className="size-4 animate-[cta-arrow_1.2s_ease-in-out_infinite] transition-transform group-hover/button:translate-x-0.5" />
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="max-h-[92svh] min-h-[68svh] overflow-hidden p-0 text-white before:inset-x-0 before:top-0 before:rounded-b-none before:rounded-t-2xl before:border-white/10 before:bg-[#151515] sm:before:inset-x-0">
+          <DrawerContent className="h-[calc(100svh-0.75rem)] overflow-hidden rounded-t-2xl border border-b-0 border-white/10 bg-[#151515] p-0 text-white before:hidden sm:h-auto sm:min-h-[68svh] sm:max-h-[92svh]">
             <DrawerClose asChild>
               <button
                 type="button"
@@ -124,7 +125,7 @@ export function PortfolioNav() {
               </button>
             </DrawerClose>
 
-            <div className="mx-auto grid min-h-[68svh] w-full max-w-5xl gap-4 px-4 py-9 sm:gap-5 sm:px-8 sm:py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-8 lg:px-10 lg:py-16">
+            <div className="mx-auto grid h-full w-full max-w-5xl gap-3 px-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-8 sm:min-h-[68svh] sm:gap-5 sm:px-8 sm:py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-8 lg:px-10 lg:py-16">
               <DrawerHeader className="items-start gap-3 p-0 text-left group-data-[vaul-drawer-direction=bottom]/drawer-content:text-left lg:gap-5">
                 <p className="font-mono text-xs uppercase tracking-[0.24em] text-white/35">
                   Available for work
@@ -133,24 +134,24 @@ export function PortfolioNav() {
                   <DrawerTitle className="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
                     Get in touch
                   </DrawerTitle>
-                  <DrawerDescription className="max-w-md text-sm leading-6 text-white/50 sm:text-base sm:leading-7">
+                  <DrawerDescription className="hidden max-w-md text-sm leading-6 text-white/50 sm:block sm:text-base sm:leading-7">
                     Open to full-stack roles, freelance builds, and product engineering work.
                   </DrawerDescription>
                 </div>
               </DrawerHeader>
 
               <div className="grid gap-3">
-                <div className="grid gap-3 border border-white/10 bg-white/[0.035] p-3 sm:grid-cols-[1fr_auto] sm:items-center sm:p-4">
+                <div className="grid grid-cols-[1fr_auto] items-center gap-3 border border-white/10 bg-white/[0.035] p-3 sm:p-4">
                   <a
                     href={`mailto:${email}`}
                     className="hero-cursor-target flex min-w-0 items-center gap-4 text-left transition hover:text-white/80"
                   >
                     <span className="flex size-10 shrink-0 items-center justify-center bg-white text-neutral-950 sm:size-12">
-                      <Mail className="size-5" />
+                      <Mail className="size-4 sm:size-5" />
                     </span>
                     <span className="min-w-0">
                       <span className="block text-xs uppercase tracking-[0.16em] text-white/35">Email</span>
-                      <span className="block break-all font-mono text-base text-white sm:text-xl">{email}</span>
+                      <span className="block break-all font-mono text-sm text-white sm:text-xl">{email}</span>
                     </span>
                   </a>
                   <button
@@ -161,7 +162,7 @@ export function PortfolioNav() {
                       setCopied(true);
                       window.setTimeout(() => setCopied(false), 1500);
                     }}
-                    className="hero-cursor-target flex h-10 items-center justify-center gap-2 bg-white/[0.06] px-4 font-mono text-xs uppercase tracking-[0.14em] text-white/70 transition hover:bg-white/[0.1] hover:text-white sm:h-11 sm:w-32"
+                    className="hero-cursor-target flex h-10 items-center justify-center gap-1.5 bg-white/[0.06] px-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 transition hover:bg-white/[0.1] hover:text-white sm:h-11 sm:w-32 sm:gap-2 sm:px-4 sm:text-xs"
                   >
                     {copied ? (
                       "Copied"
@@ -197,7 +198,12 @@ export function PortfolioNav() {
                       <span className="block text-sm text-white/75">Message directly</span>
                     </span>
                   </a>
-                  <div className="flex items-center gap-4 border border-white/10 bg-white/[0.03] p-4 text-left">
+                  <a
+                    href={mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={contactButtonClass}
+                  >
                     <span className={contactIconClass}>
                       <MapPin className="size-4" />
                     </span>
@@ -205,7 +211,7 @@ export function PortfolioNav() {
                       <span className="block text-xs uppercase tracking-[0.16em] text-white/35">Address</span>
                       <span className="block text-sm leading-6 text-white/65">{address}</span>
                     </span>
-                  </div>
+                  </a>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {socialItems.map(({ href, label, icon }) => (
