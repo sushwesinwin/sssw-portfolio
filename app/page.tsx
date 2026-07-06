@@ -40,8 +40,11 @@ export default function Home() {
           <TargetCursor targetSelector={cursorSelector} cursorColor="#ffffff" />
           <div className={`${pageContainer} relative flex min-h-screen flex-col pb-5 pt-24 sm:pt-24`}>
             <PortfolioNav />
+            <p aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[clamp(4rem,18vw,13rem)] font-black leading-none tracking-normal text-white/[0.035]">
+              DEVELOPER
+            </p>
 
-            <div className="absolute inset-0 flex items-center justify-center px-5 text-center">
+            <div className="absolute inset-0 z-10 flex items-center justify-center px-5 text-center">
               <div>
                 <p className="hero-enter hero-enter-1 mb-5 font-mono text-xs font-semibold uppercase tracking-[0.24em] text-white/30 sm:text-sm">
                   Hello, I&apos;m
@@ -127,7 +130,7 @@ export default function Home() {
         </div>
         <div className={`${pageContainer} relative`}>
           <h2 className="text-center text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
-            Education <br /> &amp; Professional Qualifications
+            Education, Certifications &amp; Training
           </h2>
 
           <div className="mt-8 grid items-stretch gap-4 sm:mt-10 md:grid-cols-3">
@@ -212,7 +215,11 @@ export default function Home() {
         className="relative overflow-hidden bg-[#0A0A0A] px-4 pb-10 text-white sm:px-8 sm:pb-12 lg:px-10"
       >
         <div className="relative z-10 h-px w-full bg-white/10" />
-        <div className="relative z-10 mx-auto mt-8 grid w-full max-w-5xl gap-8 text-center sm:mt-10 sm:gap-10 md:grid-cols-[1fr_2fr] md:text-left">
+        <p className="relative z-10 mx-auto mt-14 max-w-3xl text-center text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-tight tracking-normal text-white/85 sm:mt-20">
+          Enjoy exploring new tech and keeping up with trends.
+        </p>
+        <div className="relative z-10 mt-14 h-px w-full bg-white/10 sm:mt-20" />
+        <div className="relative z-10 mx-auto mt-16 grid w-full max-w-5xl gap-10 text-center sm:mt-20 md:grid-cols-[1fr_2fr] md:text-left">
           <div className="flex flex-col items-center md:items-start">
             <p className="text-2xl font-black tracking-normal text-white">SU SHWE SIN WIN</p>
             <p className="mt-5 flex items-center gap-2 text-sm text-white/50">
@@ -224,26 +231,28 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
-            {footerColumns.map(({ title, links }) => (
-              <div key={title}>
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">{title}</p>
-                <div className="mt-4 grid gap-3">
-                  {links.map(([label, href]) => (
-                    <a key={label} href={href} className="cursor-pointer text-sm font-semibold text-white/65 transition hover:text-white">
-                      {label}
-                    </a>
-                  ))}
+          <div>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
+              {footerColumns.map(({ title, links }) => (
+                <div key={title}>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">{title}</p>
+                  <div className="mt-4 grid gap-3">
+                    {links.map(([label, href]) => (
+                      <a key={label} href={href} className="cursor-pointer text-sm font-semibold text-white/65 transition hover:text-white">
+                        {label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto mt-10 flex w-full max-w-5xl flex-col items-center justify-center gap-4 text-center text-xs font-semibold text-white/45 sm:mt-14 sm:flex-row sm:justify-between sm:gap-6 sm:text-left">
+        <div className="relative z-10 mx-auto mb-24 mt-10 flex w-full max-w-5xl flex-col items-center justify-center gap-4 text-center text-xs font-semibold text-white/45 sm:mb-32 sm:mt-14 sm:flex-row sm:justify-between sm:gap-6 sm:text-left lg:mb-40">
           <p className="max-w-[18rem] leading-5 sm:max-w-none">
             Built by SU SHWE SIN WIN. The source code is available on{" "}
-            <a className="cursor-pointer transition hover:text-white" href="https://github.com/sushwesinwin/sssw-portfolio" target="_blank" rel="noreferrer">
+            <a className="cursor-pointer text-sky-400 transition hover:text-sky-300" href="https://github.com/sushwesinwin/sssw-portfolio" target="_blank" rel="noreferrer">
               GitHub
             </a>.
           </p>
@@ -260,8 +269,8 @@ export default function Home() {
           </div>
         </div>
 
-        <p aria-hidden="true" className="absolute bottom-[-0.18em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[clamp(3.2rem,13vw,14rem)] font-black leading-none tracking-normal text-white/[0.035]">
-          DEVELOPER
+        <p aria-hidden="true" className="absolute bottom-[-0.18em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[clamp(3.2rem,13vw,14rem)] font-black leading-none tracking-normal text-white/[0.06]">
+          PORTFOLIO
         </p>
       </SpotlightCard>
     </main>
