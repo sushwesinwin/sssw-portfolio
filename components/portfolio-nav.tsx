@@ -65,6 +65,9 @@ const linkButtonClass =
 const ctaButtonClass =
   "hero-cursor-target h-8 w-auto rounded-none border-transparent bg-white px-2 py-0 text-neutral-950 hover:border-transparent hover:bg-white/90 hover:text-neutral-950 sm:h-9 sm:px-3";
 
+const resumeButtonClass =
+  "hero-cursor-target h-8 w-auto rounded-none border-transparent bg-white/[0.08] px-2 py-0 font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/80 hover:border-transparent hover:bg-white/[0.12] hover:text-white sm:h-9 sm:px-3 sm:text-[10px]";
+
 const tooltipClass =
   "pointer-events-none absolute left-1/2 top-full z-50 mt-3 hidden -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-md bg-neutral-900 px-2.5 py-1 text-xs font-medium text-white opacity-0 shadow-lg shadow-black/30 transition sm:block sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:translate-y-0 sm:group-focus-visible:opacity-100";
 
@@ -123,6 +126,17 @@ export function PortfolioNav() {
           </a>
         </Button>
       ))}
+
+      <Button
+        asChild
+        variant="outline"
+        size="sm"
+        className={resumeButtonClass}
+      >
+        <a href="/Su_Shwe_Sin_Win_resume.pdf" download aria-label="Download resume">
+          Resume
+        </a>
+      </Button>
 
       <Drawer direction="bottom">
         <DrawerTrigger asChild>
