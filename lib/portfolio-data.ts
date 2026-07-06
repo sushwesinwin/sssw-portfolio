@@ -1,15 +1,18 @@
 import type { IconType } from "react-icons";
 import {
+  SiClaude,
   SiClickup,
   SiDocker,
   SiExpress,
   SiFigma,
+  SiHermes,
   SiHono,
   SiJira,
   SiMongodb,
   SiNestjs,
   SiNextdotjs,
   SiNodedotjs,
+  SiOpenai,
   SiPostgresql,
   SiPosthog,
   SiPrisma,
@@ -163,6 +166,9 @@ export const techArsenal: {
   { name: "Jira", icon: SiJira, color: "text-[#0052CC]", description: "Issue tracking" },
   { name: "Sentry", icon: SiSentry, color: "text-[#FB4226]", description: "Error monitoring" },
   { name: "PostHog", icon: SiPosthog, color: "text-[#F54E00]", description: "Product analytics" },
+  { name: "Claude", icon: SiClaude, color: "text-[#D97757]", description: "AI assistant" },
+  { name: "Codex", icon: SiOpenai, color: "text-white", description: "AI coding agent" },
+  { name: "Hermes", icon: SiHermes, color: "text-[#00AEEF]", description: "Developer tooling" },
 ];
 
 export const heroTechSlots = techArsenal.slice(0, 5).map((item, index) => [

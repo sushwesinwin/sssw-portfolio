@@ -3,6 +3,7 @@ import { FiGithub, FiLinkedin } from "react-icons/fi";
 
 import Ferrofluid from "@/components/Ferrofluid";
 import GlareHover from "@/components/GlareHover";
+import Lanyard from "@/components/Lanyard";
 import { PortfolioNav } from "@/components/portfolio-nav";
 import { SelectedWorkSection } from "@/components/selected-work-section";
 import SpotlightCard from "@/components/SpotlightCard";
@@ -20,9 +21,6 @@ import {
 const pageContainer = "mx-auto w-full max-w-5xl px-4 sm:px-8 lg:px-10";
 const cursorTarget = "hero-cursor-target";
 const cursorSelector = `.${cursorTarget}`;
-const heroTitleClass = `${cursorTarget} hero-enter hero-enter-2 inline-block text-[clamp(1.6rem,9vw,3rem)] font-semibold leading-none tracking-normal text-white/85`;
-const intro =
-  "Full-Stack Developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.";
 
 export default function Home() {
   return (
@@ -43,18 +41,36 @@ export default function Home() {
             <p aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[clamp(4rem,18vw,13rem)] font-black leading-none tracking-normal text-white/[0.035]">
               DEVELOPER
             </p>
-
-            <div className="absolute inset-0 z-10 flex items-center justify-center px-5 text-center">
-              <div>
-                <p className="hero-enter hero-enter-1 mb-5 font-mono text-xs font-semibold uppercase tracking-[0.24em] text-white/30 sm:text-sm">
+            <div className="absolute inset-0 z-20 flex items-center justify-center px-5 pt-16 text-center sm:pt-20 lg:text-left">
+              <div className="mx-auto grid w-full max-w-5xl items-center gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
+                <div>
+                  <p className="hero-enter hero-enter-1 mb-4 font-mono text-xs font-semibold uppercase tracking-[0.32em] text-white/35 sm:text-sm">
                   Hello, I&apos;m
-                </p>
-                <h1 className={heroTitleClass}>
-                  SU SHWE SIN WIN
-                </h1>
-                <p className="hero-enter hero-enter-3 mx-auto mt-5 max-w-lg text-sm leading-6 text-white/52 sm:text-base">
-                  {intro}
-                </p>
+                  </p>
+                  <h1 className="hero-enter hero-enter-2 text-[clamp(2.4rem,8vw,5rem)] font-black leading-[0.9] tracking-normal text-white/90">
+                    Su Shwe Sin Win
+                  </h1>
+                  <p className="hero-enter hero-enter-3 mt-5 text-2xl font-semibold leading-tight text-white/85 sm:text-3xl">
+                    Full Stack
+                    <br />
+                    <span className="text-white/35">Developer</span>
+                  </p>
+                  <p className="hero-enter hero-enter-4 mx-auto mt-6 max-w-xl text-base leading-7 text-white/52 sm:text-lg sm:leading-8 lg:mx-0">
+                    Specialize in scalable SaaS applications, modern web technologies, and high-performance user experiences.
+                  </p>
+                </div>
+                <div className={`${cursorTarget} hero-enter hero-enter-1 h-[24rem] w-full min-w-0 sm:h-[30rem] lg:h-[34rem]`}>
+                  <Lanyard
+                    position={[0, 0, 22]}
+                    gravity={[0, -35, 0]}
+                    fov={22}
+                    frontImage="/lanyard-card.png"
+                    imageFit="cover"
+                    lanyardWidth={0.9}
+                    cardScale={3}
+                  />
+                </div>
+                <h1 className="sr-only">Su Shwe Sin Win, Full-Stack Developer</h1>
               </div>
             </div>
             <div className="scroll-line absolute bottom-20 left-1/2 h-16 w-px -translate-x-1/2 bg-white/15 sm:bottom-24 sm:h-20" />
@@ -87,7 +103,7 @@ export default function Home() {
       <SelectedWorkSection work={selectedWork} cursorTarget={cursorTarget} />
       <section id="services" className={`${pageContainer} py-16 sm:py-20`}>
         <h2 className="text-center text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
-          Tech Arsenal
+          Tech <span className="text-white/35">Arsenal</span>
         </h2>
 
         <div className="mt-8 grid grid-cols-2 border-l border-t border-white/10 sm:mt-10 sm:grid-cols-3 lg:grid-cols-4">
@@ -130,7 +146,7 @@ export default function Home() {
         </div>
         <div className={`${pageContainer} relative`}>
           <h2 className="text-center text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
-            Education, Certifications &amp; Training
+            <span className="text-white/35">Education, Certifications &amp; </span>Training
           </h2>
 
           <div className="mt-8 grid items-stretch gap-4 sm:mt-10 md:grid-cols-3">
@@ -215,8 +231,8 @@ export default function Home() {
         className="relative overflow-hidden bg-[#0A0A0A] px-4 pb-10 text-white sm:px-8 sm:pb-12 lg:px-10"
       >
         <div className="relative z-10 h-px w-full bg-white/10" />
-        <p className="relative z-10 mx-auto mt-14 max-w-3xl text-center text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-tight tracking-normal text-white/85 sm:mt-20">
-          Enjoy exploring new tech and keeping up with trends.
+        <p className="relative z-10 mx-auto mt-14 max-w-3xl text-center text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-tight tracking-normal text-white/35 sm:mt-20">
+          Enjoy <span className="text-white">exploring new tech</span> and <span className="text-white">keeping up with trends.</span>
         </p>
         <div className="relative z-10 mt-14 h-px w-full bg-white/10 sm:mt-20" />
         <div className="relative z-10 mx-auto mt-16 grid w-full max-w-5xl gap-10 text-center sm:mt-20 md:grid-cols-[1fr_2fr] md:text-left">

@@ -86,8 +86,8 @@ export function SelectedWorkSection({
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         <div className="mx-auto flex h-full min-h-0 w-full max-w-5xl flex-col gap-4 px-4 pb-5 pt-24 sm:gap-7 sm:px-8 sm:pb-8 sm:pt-32 lg:gap-8 lg:px-10 lg:pb-10">
           <div className="shrink-0 text-center">
-            <h2 className="text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
-              3 Years of Experience
+            <h2 className="text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/35">
+              3 Years of <span className="text-white/85">Experience</span>
             </h2>
           </div>
 
@@ -107,7 +107,7 @@ export function SelectedWorkSection({
                       transform: `translateY(calc(-50% + ${offset * 24}rem))`,
                     }}
                   >
-                    <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-white/35">
+                    <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-white/25">
                       {item.period}
                     </p>
                     <h3 className="text-xl font-semibold text-white sm:text-[1.7rem]">

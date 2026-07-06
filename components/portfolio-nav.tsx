@@ -109,7 +109,7 @@ export function PortfolioNav() {
     >
       {navItems.map(({ href, label, icon: Icon }) => (
         <Button
-          key={href}
+          key={label}
           asChild
           variant="outline"
           size="sm"
