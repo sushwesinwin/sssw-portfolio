@@ -187,15 +187,20 @@ export const certifications = [
     name: "Introduction to Software Engineering",
     issuer: "Coursera",
     credential: "SW3ZRVWYASIB",
+    description: "Software development lifecycle, requirements, design, implementation, testing, and maintenance fundamentals.",
     href: "https://coursera.org/share/3e5de2d37ee9fd9e9951048155962625",
   },
 ];
 
+export const certificateDriveHref =
+  "https://drive.google.com/file/d/1ALpz7WP87yQoTuPzoffqR8EUSPVO7ljw/view?usp=sharing";
+
 export const training = [
-  "Diploma in Business English - MIB",
-  "IELTS 4-Skills - MIB",
   "Professional Web Development - FairWay Technology (JS, PHP, Laravel, React, API)",
   "MERN Stack - WTC (PHP, JavaScript, Node.js, Next.js, MongoDB, Prisma)",
+  "Diploma in Web Development - Y-Max University",
+  "CCNA - VCE Training",
+  "Network Engineering - KMD",
 ];
 
 export const footerColumns = [

@@ -9,6 +9,7 @@ import { SelectedWorkSection } from "@/components/selected-work-section";
 import SpotlightCard from "@/components/SpotlightCard";
 import TargetCursor from "@/components/TargetCursor";
 import {
+  certificateDriveHref,
   certifications,
   education,
   footerColumns,
@@ -176,13 +177,13 @@ export default function Home() {
                 ))}
               </div>
               <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-4">
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-sky-300/80 transition group-hover:text-sky-200">
                   View Curriculum
                 </span>
-                <ArrowUpRight className="size-4 shrink-0 text-white/35 transition group-hover:text-white" />
+                <ArrowUpRight className="size-4 shrink-0 text-sky-300/80 transition group-hover:text-sky-200" />
               </div>
             </a>
-            {certifications.map(({ name, issuer, credential, href }) => (
+            {certifications.map(({ name, issuer, credential, description, href }) => (
               <a
                 key={credential}
                 href={href}
@@ -201,20 +202,26 @@ export default function Home() {
                   </div>
                   <div className="flex flex-1 flex-col items-center justify-center py-6 text-center">
                     <p className="font-medium leading-6 text-white/85">{name}</p>
+                    <p className="mt-3 text-sm leading-6 text-white/55">{description}</p>
                     <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
                       {issuer}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-4">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-sky-300/80 transition group-hover:text-sky-200">
                     Credential {credential}
                   </span>
-                  <ArrowUpRight className="size-4 shrink-0 text-white/35 transition group-hover:text-white" />
+                  <ArrowUpRight className="size-4 shrink-0 text-sky-300/80 transition group-hover:text-sky-200" />
                 </div>
               </a>
             ))}
-            <div className={`${cursorTarget} flex min-h-0 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md sm:min-h-72`}>
+            <a
+              href={certificateDriveHref}
+              target="_blank"
+              rel="noreferrer"
+              className={`${cursorTarget} group flex min-h-0 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md transition hover:bg-white/[0.04] sm:min-h-72`}
+            >
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
                   Training
@@ -231,7 +238,13 @@ export default function Home() {
                   </p>
                 ))}
               </div>
-            </div>
+              <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-sky-300/80 transition group-hover:text-sky-200">
+                  View More Certificates
+                </span>
+                <ArrowUpRight className="size-4 shrink-0 text-sky-300/80 transition group-hover:text-sky-200" />
+              </div>
+            </a>
           </div>
         </div>
       </section>
