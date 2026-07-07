@@ -11,7 +11,6 @@ import {
   ArrowRight,
   BriefcaseBusiness,
   Copy,
-  Folder,
   Home,
   Layers,
   Mail,
@@ -36,7 +35,6 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "#", label: "Home", icon: Home },
-  { href: "#", label: "Project", icon: Folder },
   { href: "#work", label: "Experience", icon: BriefcaseBusiness },
   { href: "#services", label: "Stack", icon: Layers },
 ];
