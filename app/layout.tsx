@@ -20,19 +20,19 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ssswdev-portfolio.vercel.app"),
   title: "Su Shwe Sin Win | Full-Stack Developer",
   description:
-    "Su Shwe Sin Win is a full-stack developer specializing in scalable SaaS applications, modern web platforms, API integrations, frontend engineering, backend systems, and production-ready user experiences.",
+    "Full-stack developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.",
   authors: [{ name: "Su Shwe Sin Win" }],
   openGraph: {
     title: "Su Shwe Sin Win | Full-Stack Developer",
     description:
-      "Full-stack developer specializing in scalable SaaS applications, modern web platforms, API integrations, frontend engineering, backend systems, and production-ready user experiences.",
+      "Full-stack developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.",
     type: "website",
   },
   twitter: {
     card: "summary",
     title: "Su Shwe Sin Win | Full-Stack Developer",
     description:
-      "Full-stack developer specializing in scalable SaaS applications, modern web platforms, API integrations, frontend engineering, backend systems, and production-ready user experiences.",
+      "Full-stack developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.",
   },
   appleWebApp: {
     capable: true,
