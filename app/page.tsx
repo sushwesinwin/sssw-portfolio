@@ -150,7 +150,12 @@ export default function Home() {
           </h2>
 
           <div className="mt-8 grid items-stretch gap-4 sm:mt-10 md:grid-cols-3">
-            <div className={`${cursorTarget} flex min-h-0 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md sm:min-h-72`}>
+            <a
+              href="https://tuthanlyin.edu.mm/department/electronic-engineering/#flipbook-df_979/3/"
+              target="_blank"
+              rel="noreferrer"
+              className={`${cursorTarget} group flex min-h-0 flex-col border border-white/10 bg-[#0A0A0A]/70 p-5 text-white backdrop-blur-md transition hover:bg-white/[0.04] sm:min-h-72`}
+            >
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
                   Education
@@ -170,7 +175,13 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
+              <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">
+                  View Curriculum
+                </span>
+                <ArrowUpRight className="size-4 shrink-0 text-white/35 transition group-hover:text-white" />
+              </div>
+            </a>
             {certifications.map(({ name, issuer, credential, href }) => (
               <a
                 key={credential}

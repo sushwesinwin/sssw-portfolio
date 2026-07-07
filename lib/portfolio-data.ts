@@ -177,9 +177,9 @@ export const heroTechSlots = techArsenal.slice(0, 5).map((item, index) => [
 ] as const);
 
 export const education = [
-  ["2016 - 2017", "Bachelor of Engineering (Electronic)"],
-  ["2015 - 2016", "Bachelor of Technology (Electronic)"],
-  ["2012 - 2014", "Associateship of Government Technical Institute (Electronic)"],
+  ["2016 - 2017", "Bachelor of Engineering in Electronics and Communication Engineering (EC)"],
+  ["2015 - 2016", "Bachelor of Technology in Electronics and Communication Engineering (EC)"],
+  ["2012 - 2014", "Associateship of Government Technical Institute in Electronics and Communication Engineering (EC)"],
 ];
 
 export const certifications = [
