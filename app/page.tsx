@@ -9,7 +9,6 @@ import { SelectedWorkSection } from "@/components/selected-work-section";
 import SpotlightCard from "@/components/SpotlightCard";
 import TargetCursor from "@/components/TargetCursor";
 import {
-  certificatesFolderHref,
   certifications,
   education,
   footerColumns,
@@ -232,17 +231,6 @@ export default function Home() {
                   </p>
                 ))}
               </div>
-              <a
-                href={certificatesFolderHref}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 flex items-center justify-between gap-4 border-t border-white/10 pt-4"
-              >
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">
-                  View Certificates
-                </span>
-                <ArrowUpRight className="size-4 shrink-0 text-white/35" />
-              </a>
             </div>
           </div>
         </div>

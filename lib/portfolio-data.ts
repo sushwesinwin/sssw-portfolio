@@ -192,22 +192,11 @@ export const certifications = [
 ];
 
 export const training = [
-  "Diploma in Web Development - Y-Max",
-  "React.js - Turing",
-  "Adobe Illustrator - Donato",
-  "Full-Stack Development - StrongForce Tech",
-  "Professional Web Development - Fairway Tech",
-  "MERN Stack Bootcamp - WTC",
   "Diploma in Business English - MIB",
   "IELTS 4-Skills - MIB",
-  "Project Management - MMI",
-  "Microsoft Office - KMD",
-  "NE - KMD",
-  "CCNA - VCE Training",
+  "Professional Web Development - FairWay Technology (JS, PHP, Laravel, React, API)",
+  "MERN Stack - WTC (PHP, JavaScript, Node.js, Next.js, MongoDB, Prisma)",
 ];
-
-export const certificatesFolderHref =
-  "https://drive.google.com/drive/folders/1iZkoERWKp7UP5uZdMMbFnyhw4zJmOD60?usp=sharing";
 
 export const footerColumns = [
   {
