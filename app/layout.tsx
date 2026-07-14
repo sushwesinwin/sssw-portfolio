@@ -27,12 +27,14 @@ export const metadata: Metadata = {
     description:
       "Full-stack developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.",
     type: "website",
+    images: [{ url: "/share-preview.png", width: 1, height: 1 }],
   },
   twitter: {
     card: "summary",
     title: "Su Shwe Sin Win | Full-Stack Developer",
     description:
       "Full-stack developer specializing in scalable SaaS applications, modern web technologies, and high-performance user experiences.",
+    images: ["/share-preview.png"],
   },
   appleWebApp: {
     capable: true,

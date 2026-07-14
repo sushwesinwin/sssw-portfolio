@@ -199,8 +199,8 @@ export const training = [
   "Professional Web Development - FairWay Technology (JS, PHP, Laravel, React, API)",
   "MERN Stack - WTC (PHP, JavaScript, Node.js, Next.js, MongoDB, Prisma)",
   "Diploma in Web Development - Y-Max University",
-  "CCNA - VCE Training",
   "Network Engineering - KMD",
+  "CCNA - VCE Training",
 ];
 
 export const footerColumns = [

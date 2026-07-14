@@ -131,7 +131,7 @@ export function PortfolioNav() {
         size="sm"
         className={resumeButtonClass}
       >
-        <a href="/Su_Shwe_Sin_Win_resume.pdf" download aria-label="Download resume">
+        <a href="/Su_Shwe_Sin_Win_Web_Developer_Resume.pdf" download aria-label="Download resume">
           Resume
         </a>
       </Button>
