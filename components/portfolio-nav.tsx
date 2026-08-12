@@ -80,9 +80,9 @@ export function PortfolioNav() {
   const [hidden, setHidden] = useState(false);
   const [copied, setCopied] = useState(false);
   const email = "sushwesinw@gmail.com";
-  const phone = "+65 8407 8490";
+  const phone = "+65 8616 4132";
   const telegram = "@sushwesinwin";
-  const address = "Choa Chu Kang Drive, BLK687B#09-386, S682687";
+  const address = "BLK 433 Choa Chu Kang Ave 4, Singapore 680433";
   const mapUrl = "https://maps.app.goo.gl/Z5vVtD72bZUHWyH86";
 
   useEffect(() => {
@@ -233,7 +233,7 @@ export function PortfolioNav() {
                   </button>
                 </div>
                 <div className="grid gap-3">
-                  <a href="tel:+6584078490" className={contactButtonClass}>
+                  <a href="tel:+6586164132" className={contactButtonClass}>
                     <span className={contactIconClass}>
                       <Phone className="size-4" />
                     </span>
@@ -243,7 +243,7 @@ export function PortfolioNav() {
                     </span>
                   </a>
                   <a
-                    href="https://wa.me/6584078490"
+                    href="https://wa.me/6586164132"
                     target="_blank"
                     rel="noreferrer"
                     className={contactButtonClass}

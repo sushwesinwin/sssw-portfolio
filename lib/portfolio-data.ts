@@ -227,7 +227,7 @@ export const footerColumns = [
     title: "Contact",
     links: [
       ["Email", "mailto:sushwesinw@gmail.com"],
-      ["WhatsApp", "https://wa.me/6584078490"],
+      ["WhatsApp", "https://wa.me/6586164132"],
       ["LinkedIn", "https://www.linkedin.com/in/su-shwe-sin-win/"],
     ],
   },

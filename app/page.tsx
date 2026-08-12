@@ -331,7 +331,7 @@ export default function Home() {
                 <span className="absolute left-1/2 top-0 size-1.5 -translate-x-1/2 rounded-full border border-white/75" />
                 <span className="absolute left-1/2 top-1.5 h-2.5 w-px -translate-x-1/2 bg-white/75" />
               </span>
-              Singapore
+              BLK 433 Choa Chu Kang Ave 4, Singapore 680433
             </p>
           </div>
 
