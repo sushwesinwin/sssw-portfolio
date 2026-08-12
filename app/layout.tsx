@@ -16,6 +16,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const extensionAttributeCleaner = `
+(() => {
+  const clean = (node) => {
+    if (node.nodeType !== 1) return;
+    for (const attr of [...node.attributes]) {
+      if (attr.name.startsWith("bis_") || attr.name.startsWith("__processed_")) {
+        node.removeAttribute(attr.name);
+      }
+    }
+  };
+  const cleanTree = (root) => {
+    clean(root);
+    root.querySelectorAll?.("*").forEach(clean);
+  };
+  cleanTree(document.documentElement);
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === "attributes") clean(mutation.target);
+      mutation.addedNodes.forEach(cleanTree);
+    }
+  });
+  observer.observe(document.documentElement, { attributes: true, childList: true, subtree: true });
+  setTimeout(() => observer.disconnect(), 10000);
+})();
+`;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://ssswdev-portfolio.vercel.app"),
   title: "Su Shwe Sin Win | Full-Stack Developer",
@@ -54,7 +80,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", figtree.variable)}
     >
-      <body className="min-h-full flex flex-col">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: extensionAttributeCleaner }} />
+      </head>
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}
         <PwaRegister />
       </body>
