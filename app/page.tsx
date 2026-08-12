@@ -1,4 +1,5 @@
 import { ArrowUpRight, Award, Mail } from "lucide-react";
+import Image from "next/image";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 
 import Ferrofluid from "@/components/Ferrofluid";
@@ -14,6 +15,7 @@ import {
   education,
   footerColumns,
   heroTechSlots,
+  pawConnectProject,
   selectedWork,
   techArsenal,
   training,
@@ -102,6 +104,68 @@ export default function Home() {
         </section>
       </GlareHover>
       <SelectedWorkSection work={selectedWork} cursorTarget={cursorTarget} />
+      <section id="paw-connect" className="border-y border-white/10 bg-[#0A0A0A] py-16 sm:py-20">
+        <div className={`${pageContainer} grid items-center gap-8 lg:grid-cols-[1fr_1.05fr] lg:gap-12`}>
+          <div>
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-white/35">
+              {pawConnectProject.label}
+            </p>
+            <h2 className="mt-4 text-[clamp(2.2rem,8vw,4.5rem)] font-black leading-none tracking-normal text-white/90">
+              {pawConnectProject.name}
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
+              {pawConnectProject.summary}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {pawConnectProject.stack.map((item) => (
+                <span
+                  key={item}
+                  className="border border-white/10 px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-white/50"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={pawConnectProject.demoHref}
+                target="_blank"
+                rel="noreferrer"
+                className={`${cursorTarget} inline-flex h-10 items-center gap-2 border border-white/15 px-4 text-sm font-semibold text-white transition hover:bg-white hover:text-black`}
+              >
+                Live Demo
+                <ArrowUpRight className="size-4" />
+              </a>
+              <a
+                href={pawConnectProject.githubHref}
+                target="_blank"
+                rel="noreferrer"
+                className={`${cursorTarget} inline-flex h-10 items-center gap-2 border border-white/15 px-4 text-sm font-semibold text-white/70 transition hover:bg-white/[0.06] hover:text-white`}
+              >
+                <FiGithub className="size-4" />
+                GitHub
+              </a>
+            </div>
+          </div>
+          <a
+            href={pawConnectProject.demoHref}
+            target="_blank"
+            rel="noreferrer"
+            className={`${cursorTarget} group block border border-white/10 bg-white/[0.02] p-2 shadow-[0_24px_70px_rgba(255,255,255,0.05)] transition hover:bg-white/[0.04]`}
+          >
+            <div className="relative aspect-[2658/1454] overflow-hidden">
+              <Image
+                src={pawConnectProject.image}
+                alt={`${pawConnectProject.name} project preview`}
+                fill
+                loading="eager"
+                sizes="(min-width: 1024px) 520px, 100vw"
+                className="object-cover transition duration-500 group-hover:scale-[1.02]"
+              />
+            </div>
+          </a>
+        </div>
+      </section>
       <section id="services" className={`${pageContainer} py-16 sm:py-20`}>
         <h2 className="text-center text-[clamp(1.6rem,8vw,3rem)] font-semibold leading-none tracking-normal text-white/85">
           Tech <span className="text-white/35">Arsenal</span>

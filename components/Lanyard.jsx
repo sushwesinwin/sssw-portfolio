@@ -136,7 +136,13 @@ function Band({
     dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   const { nodes, materials } = useGLTF(cardGLB);
-  const texture = useTexture(lanyardImage || lanyard);
+  const lanyardTexture = useTexture(lanyardImage || lanyard);
+  const texture = useMemo(() => {
+    const nextTexture = lanyardTexture.clone();
+    nextTexture.wrapS = nextTexture.wrapT = THREE.RepeatWrapping;
+    nextTexture.needsUpdate = true;
+    return nextTexture;
+  }, [lanyardTexture]);
   // useTexture must be called unconditionally; use a blank pixel when an image
   // isn't supplied for a given face, then skip compositing it below.
   const frontTex = useTexture(frontImage || BLANK_PIXEL);
@@ -188,10 +194,11 @@ function Band({
     composite.needsUpdate = true;
     return composite;
   }, [frontImage, backImage, imageFit, frontTex, backTex, materials.base.map]);
-  const [curve] = useState(
-    () =>
-      new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()])
-  );
+  const [curve] = useState(() => {
+    const nextCurve = new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]);
+    nextCurve.curveType = 'chordal';
+    return nextCurve;
+  });
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
 
@@ -237,9 +244,6 @@ function Band({
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
     }
   });
-
-  curve.curveType = 'chordal';
-  texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
   return (
     <>

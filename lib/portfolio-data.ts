@@ -22,6 +22,17 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
+export const pawConnectProject = {
+  name: "Paw Connect",
+  label: "Featured Personal Project",
+  summary:
+    "Full-stack web application built with Next.js for pet parents to get AI pet-care help, book services, and manage lost-and-found support.",
+  image: "/paw-connect.png",
+  demoHref: "https://paw-connect-tawny.vercel.app/",
+  githubHref: "https://github.com/sushwesinwin/paw-connect",
+  stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"],
+};
+
 export const selectedWork = [
   {
     slug: "job-academy",
